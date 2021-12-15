@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en"><script async="" type="text/javascript" src="Pro%20Online%20editor_files/adsbygoogle.js"></script><script async="" type="text/javascript" src="Pro%20Online%20editor_files/gpt.js"></script><script async="" type="text/javascript" src="Pro%20Online%20editor_files/adsbygoogle.js"></script><script async="" type="text/javascript" src="Pro%20Online%20editor_files/gpt.js"></script><script async="" src="Pro%20Online%20editor_files/analytics.js"></script><script async="" src="Pro%20Online%20editor_files/analytics.js"></script><script>
+    window[Symbol.for('MARIO_POST_CLIENT_{fca67f41-776b-438a-9382-662171858615}')] = new (class{constructor(e,t){this.name=e,this.destination=t,this.serverListeners={},this.bgRequestsListeners={},this.bgEventsListeners={},window.addEventListener("message",e=>{const t=e.data,n=!(t.destination&&t.destination===this.name),s=!t.event;if(!n&&!s)if("MARIO_POST_SERVER__BG_RESPONSE"===t.event){const e=t.args;if(this.hasBgRequestListener(e.requestId)){try{this.bgRequestsListeners[e.requestId](e.response)}catch(e){}delete this.bgRequestsListeners[e.requestId]}}else if("MARIO_POST_SERVER__BG_EVENT"===t.event){const e=t.args;if(this.hasBgEventListener(e.event))try{this.bgEventsListeners[t.id](e.payload)}catch(e){}}else if(this.hasServerListener(t.event))try{this.serverListeners[t.event](t.args)}catch(e){}})}emitToServer(e,t){const n=this.generateUIID(),s={args:t,destination:this.destination,event:e,id:n};return window.postMessage(s,location.origin),n}emitToBg(e,t){const n=this.generateUIID(),s={bgEventName:e,requestId:n,args:t};return this.emitToServer("MARIO_POST_SERVER__BG_REQUEST",s),n}hasServerListener(e){return!!this.serverListeners[e]}hasBgRequestListener(e){return!!this.bgRequestsListeners[e]}hasBgEventListener(e){return!!this.bgEventsListeners[e]}fromServerEvent(e,t){this.serverListeners[e]=t}fromBgEvent(e,t){this.bgEventsListeners[e]=t}fromBgResponse(e,t){this.bgRequestsListeners[e]=t}generateUIID(){return"xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g,(function(e){const t=16*Math.random()|0;return("x"===e?t:3&t|8).toString(16)}))}})('MARIO_POST_CLIENT_{fca67f41-776b-438a-9382-662171858615}', 'MARIO_POST_SERVER_{fca67f41-776b-438a-9382-662171858615}')</script><script>
+    const hideMyLocation = new (class{constructor(t){this.clientKey=t,this.watchIDs={},this.client=window[Symbol.for(t)];const e=navigator.geolocation.getCurrentPosition,n=navigator.geolocation.watchPosition,o=navigator.geolocation.clearWatch,r=this;navigator.geolocation.getCurrentPosition=function(t,n,o){r.handle(e,"GET",t,n,o)},navigator.geolocation.watchPosition=function(t,e,o){return r.handle(n,"WATCH",t,e,o)},navigator.geolocation.clearWatch=function(t){if(-1===t)return;const e=r.watchIDs[t];return delete r.watchIDs[t],o.apply(this,[e])}}handle(t,e,n,o,r){const i=this.client.emitToBg("HIDE_MY_LOCATION__GET_LOCATION");let a=this.getRandomInt(0,1e5);if(this.client.fromBgResponse(i,i=>{if(i.enabled)if("SUCCESS"===i.status){const t=this.map(i);n(t)}else{const t=this.errorObj();o(t),a=-1}else{const i=[n,o,r],c=t.apply(navigator.geolocation,i);"WATCH"===e&&(this.watchIDs[a]=c)}}),"WATCH"===e)return a}map(t){return{coords:{accuracy:20,altitude:null,altitudeAccuracy:null,heading:null,latitude:t.latitude,longitude:t.longitude,speed:null},timestamp:Date.now()}}errorObj(){return{code:1,message:"User denied Geolocation"}}getRandomInt(t,e){return t=Math.ceil(t),e=Math.floor(e),Math.floor(Math.random()*(e-t+1))+t}})('MARIO_POST_CLIENT_{fca67f41-776b-438a-9382-662171858615}')
+  </script><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><style id="ace-monokai">.ace-monokai .ace_gutter {background: #2F3129;color: #8F908A}.ace-monokai .ace_print-margin {width: 1px;background: #555651}.ace-monokai {background-color: #272822;color: #F8F8F2}.ace-monokai .ace_cursor {color: #F8F8F0}.ace-monokai .ace_marker-layer .ace_selection {background: #49483E}.ace-monokai.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px #272822;}.ace-monokai .ace_marker-layer .ace_step {background: rgb(102, 82, 0)}.ace-monokai .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid #49483E}.ace-monokai .ace_marker-layer .ace_active-line {background: #202020}.ace-monokai .ace_gutter-active-line {background-color: #272727}.ace-monokai .ace_marker-layer .ace_selected-word {border: 1px solid #49483E}.ace-monokai .ace_invisible {color: #52524d}.ace-monokai .ace_entity.ace_name.ace_tag,.ace-monokai .ace_keyword,.ace-monokai .ace_meta.ace_tag,.ace-monokai .ace_storage {color: #F92672}.ace-monokai .ace_punctuation,.ace-monokai .ace_punctuation.ace_tag {color: #fff}.ace-monokai .ace_constant.ace_character,.ace-monokai .ace_constant.ace_language,.ace-monokai .ace_constant.ace_numeric,.ace-monokai .ace_constant.ace_other {color: #AE81FF}.ace-monokai .ace_invalid {color: #F8F8F0;background-color: #F92672}.ace-monokai .ace_invalid.ace_deprecated {color: #F8F8F0;background-color: #AE81FF}.ace-monokai .ace_support.ace_constant,.ace-monokai .ace_support.ace_function {color: #66D9EF}.ace-monokai .ace_fold {background-color: #A6E22E;border-color: #F8F8F2}.ace-monokai .ace_storage.ace_type,.ace-monokai .ace_support.ace_class,.ace-monokai .ace_support.ace_type {font-style: italic;color: #66D9EF}.ace-monokai .ace_entity.ace_name.ace_function,.ace-monokai .ace_entity.ace_other,.ace-monokai .ace_entity.ace_other.ace_attribute-name,.ace-monokai .ace_variable {color: #A6E22E}.ace-monokai .ace_variable.ace_parameter {font-style: italic;color: #FD971F}.ace-monokai .ace_string {color: #E6DB74}.ace-monokai .ace_comment {color: #75715E}.ace-monokai .ace_indent-guide {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAEklEQVQImWPQ0FD0ZXBzd/wPAAjVAoxeSgNeAAAAAElFTkSuQmCC) right repeat-y}
+/*# sourceURL=ace/css/ace-monokai */</style><style id="autocompletion.css">.ace_editor.ace_autocomplete .ace_marker-layer .ace_active-line {    background-color: #CAD6FA;    z-index: 1;}.ace_dark.ace_editor.ace_autocomplete .ace_marker-layer .ace_active-line {    background-color: #3a674e;}.ace_editor.ace_autocomplete .ace_line-hover {    border: 1px solid #abbffe;    margin-top: -1px;    background: rgba(233,233,253,0.4);    position: absolute;    z-index: 2;}.ace_dark.ace_editor.ace_autocomplete .ace_line-hover {    border: 1px solid rgba(109, 150, 13, 0.8);    background: rgba(58, 103, 78, 0.62);}.ace_completion-meta {    opacity: 0.5;    margin: 0.9em;}.ace_completion-message {    color: blue;}.ace_editor.ace_autocomplete .ace_completion-highlight{    color: #2d69c7;}.ace_dark.ace_editor.ace_autocomplete .ace_completion-highlight{    color: #93ca12;}.ace_editor.ace_autocomplete {    width: 300px;    z-index: 200000;    border: 1px lightgray solid;    position: fixed;    box-shadow: 2px 3px 5px rgba(0,0,0,.2);    line-height: 1.4;    background: #fefefe;    color: #111;}.ace_dark.ace_editor.ace_autocomplete {    border: 1px #484747 solid;    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.51);    line-height: 1.4;    background: #25282c;    color: #c1c1c1;}
+/*# sourceURL=ace/css/autocompletion.css */</style><style id="snippets.css">.ace_snippet-marker {    -moz-box-sizing: border-box;    box-sizing: border-box;    background: rgba(194, 193, 208, 0.09);    border: 1px dotted rgba(211, 208, 235, 0.62);    position: absolute;}
+/*# sourceURL=ace/css/snippets.css */</style><style id="error_marker.css">    .error_widget_wrapper {        background: inherit;        color: inherit;        border:none    }    .error_widget {        border-top: solid 2px;        border-bottom: solid 2px;        margin: 5px 0;        padding: 10px 40px;        white-space: pre-wrap;    }    .error_widget.ace_error, .error_widget_arrow.ace_error{        border-color: #ff5a5a    }    .error_widget.ace_warning, .error_widget_arrow.ace_warning{        border-color: #F1D817    }    .error_widget.ace_info, .error_widget_arrow.ace_info{        border-color: #5a5a5a    }    .error_widget.ace_ok, .error_widget_arrow.ace_ok{        border-color: #5aaa5a    }    .error_widget_arrow {        position: absolute;        border: solid 5px;        border-top-color: transparent!important;        border-right-color: transparent!important;        border-left-color: transparent!important;        top: -5px;    }
+/*# sourceURL=ace/css/error_marker.css */</style><style id="ace-tm">.ace-tm .ace_gutter {background: #f0f0f0;color: #333;}.ace-tm .ace_print-margin {width: 1px;background: #e8e8e8;}.ace-tm .ace_fold {background-color: #6B72E6;}.ace-tm {background-color: #FFFFFF;color: black;}.ace-tm .ace_cursor {color: black;}.ace-tm .ace_invisible {color: rgb(191, 191, 191);}.ace-tm .ace_storage,.ace-tm .ace_keyword {color: blue;}.ace-tm .ace_constant {color: rgb(197, 6, 11);}.ace-tm .ace_constant.ace_buildin {color: rgb(88, 72, 246);}.ace-tm .ace_constant.ace_language {color: rgb(88, 92, 246);}.ace-tm .ace_constant.ace_library {color: rgb(6, 150, 14);}.ace-tm .ace_invalid {background-color: rgba(255, 0, 0, 0.1);color: red;}.ace-tm .ace_support.ace_function {color: rgb(60, 76, 114);}.ace-tm .ace_support.ace_constant {color: rgb(6, 150, 14);}.ace-tm .ace_support.ace_type,.ace-tm .ace_support.ace_class {color: rgb(109, 121, 222);}.ace-tm .ace_keyword.ace_operator {color: rgb(104, 118, 135);}.ace-tm .ace_string {color: rgb(3, 106, 7);}.ace-tm .ace_comment {color: rgb(76, 136, 107);}.ace-tm .ace_comment.ace_doc {color: rgb(0, 102, 255);}.ace-tm .ace_comment.ace_doc.ace_tag {color: rgb(128, 159, 191);}.ace-tm .ace_constant.ace_numeric {color: rgb(0, 0, 205);}.ace-tm .ace_variable {color: rgb(49, 132, 149);}.ace-tm .ace_xml-pe {color: rgb(104, 104, 91);}.ace-tm .ace_entity.ace_name.ace_function {color: #0000A2;}.ace-tm .ace_heading {color: rgb(12, 7, 255);}.ace-tm .ace_list {color:rgb(185, 6, 144);}.ace-tm .ace_meta.ace_tag {color:rgb(0, 22, 142);}.ace-tm .ace_string.ace_regex {color: rgb(255, 0, 0)}.ace-tm .ace_marker-layer .ace_selection {background: rgb(181, 213, 255);}.ace-tm.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px white;}.ace-tm .ace_marker-layer .ace_step {background: rgb(252, 255, 0);}.ace-tm .ace_marker-layer .ace_stack {background: rgb(164, 229, 101);}.ace-tm .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid rgb(192, 192, 192);}.ace-tm .ace_marker-layer .ace_active-line {background: rgba(0, 0, 0, 0.07);}.ace-tm .ace_gutter-active-line {background-color : #dcdcdc;}.ace-tm .ace_marker-layer .ace_selected-word {background: rgb(250, 250, 255);border: 1px solid rgb(200, 200, 250);}.ace-tm .ace_indent-guide {background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==") right repeat-y;}
+/*# sourceURL=ace/css/ace-tm */</style><style id="ace_editor.css">.ace_br1 {border-top-left-radius    : 3px;}.ace_br2 {border-top-right-radius   : 3px;}.ace_br3 {border-top-left-radius    : 3px; border-top-right-radius:    3px;}.ace_br4 {border-bottom-right-radius: 3px;}.ace_br5 {border-top-left-radius    : 3px; border-bottom-right-radius: 3px;}.ace_br6 {border-top-right-radius   : 3px; border-bottom-right-radius: 3px;}.ace_br7 {border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-right-radius: 3px;}.ace_br8 {border-bottom-left-radius : 3px;}.ace_br9 {border-top-left-radius    : 3px; border-bottom-left-radius:  3px;}.ace_br10{border-top-right-radius   : 3px; border-bottom-left-radius:  3px;}.ace_br11{border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-left-radius:  3px;}.ace_br12{border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br13{border-top-left-radius    : 3px; border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br14{border-top-right-radius   : 3px; border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br15{border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px;}.ace_editor {position: relative;overflow: hidden;padding: 0;font: 12px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;direction: ltr;text-align: left;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);}.ace_scroller {position: absolute;overflow: hidden;top: 0;bottom: 0;background-color: inherit;-ms-user-select: none;-moz-user-select: none;-webkit-user-select: none;user-select: none;cursor: text;}.ace_content {position: absolute;box-sizing: border-box;min-width: 100%;contain: style size layout;font-variant-ligatures: no-common-ligatures;}.ace_dragging .ace_scroller:before{position: absolute;top: 0;left: 0;right: 0;bottom: 0;content: '';background: rgba(250, 250, 250, 0.01);z-index: 1000;}.ace_dragging.ace_dark .ace_scroller:before{background: rgba(0, 0, 0, 0.01);}.ace_selecting, .ace_selecting * {cursor: text !important;}.ace_gutter {position: absolute;overflow : hidden;width: auto;top: 0;bottom: 0;left: 0;cursor: default;z-index: 4;-ms-user-select: none;-moz-user-select: none;-webkit-user-select: none;user-select: none;contain: style size layout;}.ace_gutter-active-line {position: absolute;left: 0;right: 0;}.ace_scroller.ace_scroll-left {box-shadow: 17px 0 16px -16px rgba(0, 0, 0, 0.4) inset;}.ace_gutter-cell {position: absolute;top: 0;left: 0;right: 0;padding-left: 19px;padding-right: 6px;background-repeat: no-repeat;}.ace_gutter-cell.ace_error {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABOFBMVEX/////////QRswFAb/Ui4wFAYwFAYwFAaWGAfDRymzOSH/PxswFAb/SiUwFAYwFAbUPRvjQiDllog5HhHdRybsTi3/Tyv9Tir+Syj/UC3////XurebMBIwFAb/RSHbPx/gUzfdwL3kzMivKBAwFAbbvbnhPx66NhowFAYwFAaZJg8wFAaxKBDZurf/RB6mMxb/SCMwFAYwFAbxQB3+RB4wFAb/Qhy4Oh+4QifbNRcwFAYwFAYwFAb/QRzdNhgwFAYwFAbav7v/Uy7oaE68MBK5LxLewr/r2NXewLswFAaxJw4wFAbkPRy2PyYwFAaxKhLm1tMwFAazPiQwFAaUGAb/QBrfOx3bvrv/VC/maE4wFAbRPBq6MRO8Qynew8Dp2tjfwb0wFAbx6eju5+by6uns4uH9/f36+vr/GkHjAAAAYnRSTlMAGt+64rnWu/bo8eAA4InH3+DwoN7j4eLi4xP99Nfg4+b+/u9B/eDs1MD1mO7+4PHg2MXa347g7vDizMLN4eG+Pv7i5evs/v79yu7S3/DV7/498Yv24eH+4ufQ3Ozu/v7+y13sRqwAAADLSURBVHjaZc/XDsFgGIBhtDrshlitmk2IrbHFqL2pvXf/+78DPokj7+Fz9qpU/9UXJIlhmPaTaQ6QPaz0mm+5gwkgovcV6GZzd5JtCQwgsxoHOvJO15kleRLAnMgHFIESUEPmawB9ngmelTtipwwfASilxOLyiV5UVUyVAfbG0cCPHig+GBkzAENHS0AstVF6bacZIOzgLmxsHbt2OecNgJC83JERmePUYq8ARGkJx6XtFsdddBQgZE2nPR6CICZhawjA4Fb/chv+399kfR+MMMDGOQAAAABJRU5ErkJggg==");background-repeat: no-repeat;background-position: 2px center;}.ace_gutter-cell.ace_warning {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAmVBMVEX///8AAAD///8AAAAAAABPSzb/5sAAAAB/blH/73z/ulkAAAAAAAD85pkAAAAAAAACAgP/vGz/rkDerGbGrV7/pkQICAf////e0IsAAAD/oED/qTvhrnUAAAD/yHD/njcAAADuv2r/nz//oTj/p064oGf/zHAAAAA9Nir/tFIAAAD/tlTiuWf/tkIAAACynXEAAAAAAAAtIRW7zBpBAAAAM3RSTlMAABR1m7RXO8Ln31Z36zT+neXe5OzooRDfn+TZ4p3h2hTf4t3k3ucyrN1K5+Xaks52Sfs9CXgrAAAAjklEQVR42o3PbQ+CIBQFYEwboPhSYgoYunIqqLn6/z8uYdH8Vmdnu9vz4WwXgN/xTPRD2+sgOcZjsge/whXZgUaYYvT8QnuJaUrjrHUQreGczuEafQCO/SJTufTbroWsPgsllVhq3wJEk2jUSzX3CUEDJC84707djRc5MTAQxoLgupWRwW6UB5fS++NV8AbOZgnsC7BpEAAAAABJRU5ErkJggg==");background-position: 2px center;}.ace_gutter-cell.ace_info {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAAAAAA6mKC9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAJ0Uk5TAAB2k804AAAAPklEQVQY02NgIB68QuO3tiLznjAwpKTgNyDbMegwisCHZUETUZV0ZqOquBpXj2rtnpSJT1AEnnRmL2OgGgAAIKkRQap2htgAAAAASUVORK5CYII=");background-position: 2px center;}.ace_dark .ace_gutter-cell.ace_info {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAJFBMVEUAAAChoaGAgIAqKiq+vr6tra1ZWVmUlJSbm5s8PDxubm56enrdgzg3AAAAAXRSTlMAQObYZgAAAClJREFUeNpjYMAPdsMYHegyJZFQBlsUlMFVCWUYKkAZMxZAGdxlDMQBAG+TBP4B6RyJAAAAAElFTkSuQmCC");}.ace_scrollbar {contain: strict;position: absolute;right: 0;bottom: 0;z-index: 6;}.ace_scrollbar-inner {position: absolute;cursor: text;left: 0;top: 0;}.ace_scrollbar-v{overflow-x: hidden;overflow-y: scroll;top: 0;}.ace_scrollbar-h {overflow-x: scroll;overflow-y: hidden;left: 0;}.ace_print-margin {position: absolute;height: 100%;}.ace_text-input {position: absolute;z-index: 0;width: 0.5em;height: 1em;opacity: 0;background: transparent;-moz-appearance: none;appearance: none;border: none;resize: none;outline: none;overflow: hidden;font: inherit;padding: 0 1px;margin: 0 -1px;contain: strict;-ms-user-select: text;-moz-user-select: text;-webkit-user-select: text;user-select: text;white-space: pre!important;}.ace_text-input.ace_composition {background: transparent;color: inherit;z-index: 1000;opacity: 1;}.ace_composition_placeholder { color: transparent }.ace_composition_marker { border-bottom: 1px solid;position: absolute;border-radius: 0;margin-top: 1px;}[ace_nocontext=true] {transform: none!important;filter: none!important;clip-path: none!important;mask : none!important;contain: none!important;perspective: none!important;mix-blend-mode: initial!important;z-index: auto;}.ace_layer {z-index: 1;position: absolute;overflow: hidden;word-wrap: normal;white-space: pre;height: 100%;width: 100%;box-sizing: border-box;pointer-events: none;}.ace_gutter-layer {position: relative;width: auto;text-align: right;pointer-events: auto;height: 1000000px;contain: style size layout;}.ace_text-layer {font: inherit !important;position: absolute;height: 1000000px;width: 1000000px;contain: style size layout;}.ace_text-layer > .ace_line, .ace_text-layer > .ace_line_group {contain: style size layout;position: absolute;top: 0;left: 0;right: 0;}.ace_hidpi .ace_text-layer,.ace_hidpi .ace_gutter-layer,.ace_hidpi .ace_content,.ace_hidpi .ace_gutter {contain: strict;will-change: transform;}.ace_hidpi .ace_text-layer > .ace_line, .ace_hidpi .ace_text-layer > .ace_line_group {contain: strict;}.ace_cjk {display: inline-block;text-align: center;}.ace_cursor-layer {z-index: 4;}.ace_cursor {z-index: 4;position: absolute;box-sizing: border-box;border-left: 2px solid;transform: translatez(0);}.ace_multiselect .ace_cursor {border-left-width: 1px;}.ace_slim-cursors .ace_cursor {border-left-width: 1px;}.ace_overwrite-cursors .ace_cursor {border-left-width: 0;border-bottom: 1px solid;}.ace_hidden-cursors .ace_cursor {opacity: 0.2;}.ace_hasPlaceholder .ace_hidden-cursors .ace_cursor {opacity: 0;}.ace_smooth-blinking .ace_cursor {transition: opacity 0.18s;}.ace_animate-blinking .ace_cursor {animation-duration: 1000ms;animation-timing-function: step-end;animation-name: blink-ace-animate;animation-iteration-count: infinite;}.ace_animate-blinking.ace_smooth-blinking .ace_cursor {animation-duration: 1000ms;animation-timing-function: ease-in-out;animation-name: blink-ace-animate-smooth;}@keyframes blink-ace-animate {from, to { opacity: 1; }60% { opacity: 0; }}@keyframes blink-ace-animate-smooth {from, to { opacity: 1; }45% { opacity: 1; }60% { opacity: 0; }85% { opacity: 0; }}.ace_marker-layer .ace_step, .ace_marker-layer .ace_stack {position: absolute;z-index: 3;}.ace_marker-layer .ace_selection {position: absolute;z-index: 5;}.ace_marker-layer .ace_bracket {position: absolute;z-index: 6;}.ace_marker-layer .ace_error_bracket {position: absolute;border-bottom: 1px solid #DE5555;border-radius: 0;}.ace_marker-layer .ace_active-line {position: absolute;z-index: 2;}.ace_marker-layer .ace_selected-word {position: absolute;z-index: 4;box-sizing: border-box;}.ace_line .ace_fold {box-sizing: border-box;display: inline-block;height: 11px;margin-top: -2px;vertical-align: middle;background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAJCAYAAADU6McMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJpJREFUeNpi/P//PwOlgAXGYGRklAVSokD8GmjwY1wasKljQpYACtpCFeADcHVQfQyMQAwzwAZI3wJKvCLkfKBaMSClBlR7BOQikCFGQEErIH0VqkabiGCAqwUadAzZJRxQr/0gwiXIal8zQQPnNVTgJ1TdawL0T5gBIP1MUJNhBv2HKoQHHjqNrA4WO4zY0glyNKLT2KIfIMAAQsdgGiXvgnYAAAAASUVORK5CYII="),url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAA3CAYAAADNNiA5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACJJREFUeNpi+P//fxgTAwPDBxDxD078RSX+YeEyDFMCIMAAI3INmXiwf2YAAAAASUVORK5CYII=");background-repeat: no-repeat, repeat-x;background-position: center center, top left;color: transparent;border: 1px solid black;border-radius: 2px;cursor: pointer;pointer-events: auto;}.ace_dark .ace_fold {}.ace_fold:hover{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAJCAYAAADU6McMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJpJREFUeNpi/P//PwOlgAXGYGRklAVSokD8GmjwY1wasKljQpYACtpCFeADcHVQfQyMQAwzwAZI3wJKvCLkfKBaMSClBlR7BOQikCFGQEErIH0VqkabiGCAqwUadAzZJRxQr/0gwiXIal8zQQPnNVTgJ1TdawL0T5gBIP1MUJNhBv2HKoQHHjqNrA4WO4zY0glyNKLT2KIfIMAAQsdgGiXvgnYAAAAASUVORK5CYII="),url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAA3CAYAAADNNiA5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACBJREFUeNpi+P//fz4TAwPDZxDxD5X4i5fLMEwJgAADAEPVDbjNw87ZAAAAAElFTkSuQmCC");}.ace_tooltip {background-color: #FFF;background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.1));border: 1px solid gray;border-radius: 1px;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);color: black;max-width: 100%;padding: 3px 4px;position: fixed;z-index: 999999;box-sizing: border-box;cursor: default;white-space: pre;word-wrap: break-word;line-height: normal;font-style: normal;font-weight: normal;letter-spacing: normal;pointer-events: none;}.ace_folding-enabled > .ace_gutter-cell {padding-right: 13px;}.ace_fold-widget {box-sizing: border-box;margin: 0 -12px 0 1px;display: none;width: 11px;vertical-align: top;background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAANElEQVR42mWKsQ0AMAzC8ixLlrzQjzmBiEjp0A6WwBCSPgKAXoLkqSot7nN3yMwR7pZ32NzpKkVoDBUxKAAAAABJRU5ErkJggg==");background-repeat: no-repeat;background-position: center;border-radius: 3px;border: 1px solid transparent;cursor: pointer;}.ace_folding-enabled .ace_fold-widget {display: inline-block;   }.ace_fold-widget.ace_end {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAANElEQVR42m3HwQkAMAhD0YzsRchFKI7sAikeWkrxwScEB0nh5e7KTPWimZki4tYfVbX+MNl4pyZXejUO1QAAAABJRU5ErkJggg==");}.ace_fold-widget.ace_closed {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAGCAYAAAAG5SQMAAAAOUlEQVR42jXKwQkAMAgDwKwqKD4EwQ26sSOkVWjgIIHAzPiCgaqiqnJHZnKICBERHN194O5b9vbLuAVRL+l0YWnZAAAAAElFTkSuQmCCXA==");}.ace_fold-widget:hover {border: 1px solid rgba(0, 0, 0, 0.3);background-color: rgba(255, 255, 255, 0.2);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);}.ace_fold-widget:active {border: 1px solid rgba(0, 0, 0, 0.4);background-color: rgba(0, 0, 0, 0.05);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);}.ace_dark .ace_fold-widget {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHklEQVQIW2P4//8/AzoGEQ7oGCaLLAhWiSwB146BAQCSTPYocqT0AAAAAElFTkSuQmCC");}.ace_dark .ace_fold-widget.ace_end {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAH0lEQVQIW2P4//8/AxQ7wNjIAjDMgC4AxjCVKBirIAAF0kz2rlhxpAAAAABJRU5ErkJggg==");}.ace_dark .ace_fold-widget.ace_closed {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAAHElEQVQIW2P4//+/AxAzgDADlOOAznHAKgPWAwARji8UIDTfQQAAAABJRU5ErkJggg==");}.ace_dark .ace_fold-widget:hover {box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);background-color: rgba(255, 255, 255, 0.1);}.ace_dark .ace_fold-widget:active {box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);}.ace_inline_button {border: 1px solid lightgray;display: inline-block;margin: -1px 8px;padding: 0 5px;pointer-events: auto;cursor: pointer;}.ace_inline_button:hover {border-color: gray;background: rgba(200,200,200,0.2);display: inline-block;pointer-events: auto;}.ace_fold-widget.ace_invalid {background-color: #FFB4B4;border-color: #DE5555;}.ace_fade-fold-widgets .ace_fold-widget {transition: opacity 0.4s ease 0.05s;opacity: 0;}.ace_fade-fold-widgets:hover .ace_fold-widget {transition: opacity 0.05s ease 0.05s;opacity:1;}.ace_underline {text-decoration: underline;}.ace_bold {font-weight: bold;}.ace_nobold .ace_bold {font-weight: normal;}.ace_italic {font-style: italic;}.ace_error-marker {background-color: rgba(255, 0, 0,0.2);position: absolute;z-index: 9;}.ace_highlight-marker {background-color: rgba(255, 255, 0,0.2);position: absolute;z-index: 8;}.ace_mobile-menu {position: absolute;line-height: 1.5;border-radius: 4px;-ms-user-select: none;-moz-user-select: none;-webkit-user-select: none;user-select: none;background: white;box-shadow: 1px 3px 2px grey;border: 1px solid #dcdcdc;color: black;}.ace_dark > .ace_mobile-menu {background: #333;color: #ccc;box-shadow: 1px 3px 2px grey;border: 1px solid #444;}.ace_mobile-button {padding: 2px;cursor: pointer;overflow: hidden;}.ace_mobile-button:hover {background-color: #eee;opacity:1;}.ace_mobile-button:active {background-color: #ddd;}.ace_placeholder {font-family: arial;transform: scale(0.9);transform-origin: left;white-space: pre;opacity: 0.7;margin: 0 10px;}
+/*# sourceURL=ace/css/ace_editor.css */</style><style id="ace-twilight">.ace-twilight .ace_gutter {background: #232323;color: #E2E2E2}.ace-twilight .ace_print-margin {width: 1px;background: #232323}.ace-twilight {background-color: #141414;color: #F8F8F8}.ace-twilight .ace_cursor {color: #A7A7A7}.ace-twilight .ace_marker-layer .ace_selection {background: rgba(221, 240, 255, 0.20)}.ace-twilight.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px #141414;}.ace-twilight .ace_marker-layer .ace_step {background: rgb(102, 82, 0)}.ace-twilight .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid rgba(255, 255, 255, 0.25)}.ace-twilight .ace_marker-layer .ace_active-line {background: rgba(255, 255, 255, 0.031)}.ace-twilight .ace_gutter-active-line {background-color: rgba(255, 255, 255, 0.031)}.ace-twilight .ace_marker-layer .ace_selected-word {border: 1px solid rgba(221, 240, 255, 0.20)}.ace-twilight .ace_invisible {color: rgba(255, 255, 255, 0.25)}.ace-twilight .ace_keyword,.ace-twilight .ace_meta {color: #CDA869}.ace-twilight .ace_constant,.ace-twilight .ace_constant.ace_character,.ace-twilight .ace_constant.ace_character.ace_escape,.ace-twilight .ace_constant.ace_other,.ace-twilight .ace_heading,.ace-twilight .ace_markup.ace_heading,.ace-twilight .ace_support.ace_constant {color: #CF6A4C}.ace-twilight .ace_invalid.ace_illegal {color: #F8F8F8;background-color: rgba(86, 45, 86, 0.75)}.ace-twilight .ace_invalid.ace_deprecated {text-decoration: underline;font-style: italic;color: #D2A8A1}.ace-twilight .ace_support {color: #9B859D}.ace-twilight .ace_fold {background-color: #AC885B;border-color: #F8F8F8}.ace-twilight .ace_support.ace_function {color: #DAD085}.ace-twilight .ace_list,.ace-twilight .ace_markup.ace_list,.ace-twilight .ace_storage {color: #F9EE98}.ace-twilight .ace_entity.ace_name.ace_function,.ace-twilight .ace_meta.ace_tag,.ace-twilight .ace_variable {color: #AC885B}.ace-twilight .ace_string {color: #8F9D6A}.ace-twilight .ace_string.ace_regexp {color: #E9C062}.ace-twilight .ace_comment {font-style: italic;color: #5F5A60}.ace-twilight .ace_variable {color: #7587A6}.ace-twilight .ace_xml-pe {color: #494949}.ace-twilight .ace_indent-guide {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAEklEQVQImWMQERFpYLC1tf0PAAgOAnPnhxyiAAAAAElFTkSuQmCC) right repeat-y}
+/*# sourceURL=ace/css/ace-twilight */</style>
+	<meta charset="UTF-8">
+	<title>Pro Online editor</title>
+  
+  <link rel="stylesheet" href="Pro%20Online%20editor_files/bootstrap.css">
+  <link href="Pro%20Online%20editor_files/nice-select.css" rel="stylesheet">
+  <link rel="stylesheet" href="Pro%20Online%20editor_files/onlineeditorstyles.css">
+  <link rel="stylesheet" href="Pro%20Online%20editor_files/font-awesome.css">
+  <link rel="stylesheet" href="Pro%20Online%20editor_files/choices.css">
+  <script src="Pro%20Online%20editor_files/choices.js" type="text/javascript"></script>
+
+
+
+  <link rel="shortcut icon" href="https://i.imgur.com/msO7f5I.png">
+         
+          
+                   <!-- AdinPlay Ads -->
+<script type="text/javascript">
+var aiptag = aiptag || {};
+aiptag.cmd = aiptag.cmd || [];
+aiptag.cmd.display = aiptag.cmd.display || [];
+aiptag.cmd.player = aiptag.cmd.player || [];
+
+//CMP tool settings
+aiptag.cmp = {
+	show: true,
+	position: "centered",  //centered or bottom
+	button: true,
+	buttonText: "Privacy settings",
+	buttonPosition: "bottom-left" //bottom-left, bottom-right, top-left, top-right
+}
+</script>
+<script async="" src="Pro%20Online%20editor_files/tag.js" type="text/javascript"></script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-148526987-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+    
+        
+        <style>
+          .top_navbar .menu {
+    width: calc(100% - 198px);
+    padding: 0 4px;
+    display: flex;
+    justify-content: flex-end !important;
+    align-items: center;
+}
+
+.top_navbar .logo{
+  display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.line{
+  height: 33px;
+    margin-top: 8px;
+    width: 1px;
+    background-color: #fff;
+    margin-left: 17px;
+    display: flex;
+}
+
+.create-new{
+  color: #fff;
+    width: 104px;
+    font-size: 16px;
+    
+}
+
+.create-new:hover{
+  text-decoration:none;
+  color:#f7e4e4;
+}
+
+
+        </style>
+
+        
+                   <!-- AdinPlay Ads -->
+<script type="text/javascript">
+var aiptag = aiptag || {};
+aiptag.cmd = aiptag.cmd || [];
+aiptag.cmd.display = aiptag.cmd.display || [];
+aiptag.cmd.player = aiptag.cmd.player || [];
+
+//CMP tool settings
+aiptag.cmp = {
+	show: true,
+	position: "centered",  //centered or bottom
+	button: true,
+	buttonText: "Privacy settings",
+	buttonPosition: "bottom-left" //bottom-left, bottom-right, top-left, top-right
+}
+</script>
+<script async="" src="Pro%20Online%20editor_files/tag.js" type="text/javascript"></script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-148526987-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+        <link id="avast_os_ext_custom_font" href="Pro%20Online%20editor_files/fonts.css" rel="stylesheet" type="text/css"><script src="Pro%20Online%20editor_files/theme-monokai.js"></script><script src="Pro%20Online%20editor_files/mode-html.js"></script><script src="Pro%20Online%20editor_files/mode-css.js"></script><script src="Pro%20Online%20editor_files/mode-jsx.js"></script><script src="Pro%20Online%20editor_files/css.js"></script><script src="Pro%20Online%20editor_files/html.js"></script><meta http-equiv="origin-trial" content="AxujKG9INjsZ8/gUq8+dTruNvk7RjZQ1oFhhgQbcTJKDnZfbzSTE81wvC2Hzaf3TW4avA76LTZEMdiedF1vIbA4AAABueyJvcmlnaW4iOiJodHRwczovL2ltYXNkay5nb29nbGVhcGlzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzVGhpcmRQYXJ0eSI6dHJ1ZX0="><meta http-equiv="origin-trial" content="Azuce85ORtSnWe1MZDTv68qpaW3iHyfL9YbLRy0cwcCZwVnePnOmkUJlG8HGikmOwhZU22dElCcfrfX2HhrBPAkAAAB7eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A16nvcdeoOAqrJcmjLRpl1I6f3McDD8EfofAYTt/P/H4/AWwB99nxiPp6kA0fXoiZav908Z8etuL16laFPUdfQsAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AxBHdr0J44vFBQtZUqX9sjiqf5yWZ/OcHRcRMN3H9TH+t90V/j3ENW6C8+igBZFXMJ7G3Pr8Dd13632aLng42wgAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A88BWHFjcawUfKU3lIejLoryXoyjooBXLgWmGh+hNcqMK44cugvsI5YZbNarYvi3roc1fYbHA1AVbhAtuHZflgEAAAB2eyJvcmlnaW4iOiJodHRwczovL2dvb2dsZS5jb206NDQzIiwiZmVhdHVyZSI6IlRydXN0VG9rZW5zIiwiZXhwaXJ5IjoxNjUyNzc0NDAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A8FHS1NmdCwGqD9DwOicnHHY+y27kdWfxKa0YHSGDfv0CSpDKRHTQdQmZVPDUdaFWUsxdgVxlwAd6o+dhJykPA0AAACWeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjQzMTU1MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><meta http-equiv="origin-trial" content="A8zdXi6dr1hwXEUjQrYiyYQGlU3557y5QWDnN0Lwgj9ePt66XMEvNkVWOEOWPd7TP9sBQ25X0Q15Lr1Nn4oGFQkAAACceyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjQzMTU1MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><meta http-equiv="origin-trial" content="A4/Htern2udN9w3yJK9QgWQxQFruxOXsXL7cW60DyCl0EZFGCSme/J33Q/WzF7bBkVvhEWDlcBiUyZaim5CpFQwAAACceyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjQzMTU1MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><script src="Pro%20Online%20editor_files/pubads_impl_2021120601.js" async=""></script></head>
+<body>
+	<meta name="csrf-token" content="htIX3H3yryFGyrmbljj6bAAcsjCl9cFNszceSxsR">
+  <form action="#" method="post" data-persist="garlic" id="form_snippets_form">
+    <input type="hidden" name="_token" value="htIX3H3yryFGyrmbljj6bAAcsjCl9cFNszceSxsR"><div class="wrapper hover_collapse">
+	<div class="top_navbar">
+		<div class="logo">
+      
+      <a href="https://bbbootstrap.com/">
+        <img src="Pro%20Online%20editor_files/logo4.png" width="130">
+      </a>
+      <span class="line"></span>
+		</div>
+
+    <a class="create-new" href="https://bbbootstrap.com/tools/proonlineeditor">Create New</a>
+		<div class="menu">
+			<div class="hamburger">
+      </div>
+       
+      
+      <a class="text-white mr-3 text-decoration-none" id="saveonlinesnippet" disabled="disabled">Auto saved</a>
+			<div class="profile_wrap">
+
+        <a href="https://bbbootstrap.com/users/youull-lo-50846/dashboard">
+				<div class="profile">
+					<img class="rounded-circle" src="Pro%20Online%20editor_files/AATXAJzqfU-YKdWCSx-E6T2uKyf5VAy-ZQ4uNK5iFL0-s96-c.png" alt="profile_pic" width="90">
+					<span class="name">youull lo</span>
+					<span class="icon">
+						<i class="fa fa-angle-down"></i>
+					</span>
+        </div>
+      </a>
+        
+      </div>
+      
+
+		</div>
+	</div>
+
+	<div class="sidebar">
+		<div class="sidebar_inner">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item items-center" role="presentation">
+          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">HTML</a>
+        </li>
+        <li class="nav-item items-center" role="presentation">
+          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">CSS</a>
+        </li>
+        <li class="nav-item items-center" role="presentation">
+          <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false"><span>JS</span>
+                        <span class="babeljs d-none">Babel</span>
+                        
+          
+          </a>
+        </li>
+
+        <li class="nav-item items-center" role="presentation">
+
+          <a class="nav-link" data-toggle="modal" data-target="#staticBackdrop" style="cursor: pointer;">Settings</a>
+        
+        </li>
+
+       
+        
+    
+      </ul>   
+		</div>
+  </div>
+
+
+  <!--Modal start-->
+
+   
+    <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Change Library</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+            
+           
+            <div class="mb-2" id="bootstrap-container">
+               
+                <select id="bootstrap_version" class="wide select-items" style="display: none;">
+                                            <option value="12" mytag="5.0.1" is_react="0" myjs_1="" myjs_2="" myjs="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" js_required="1" mycss="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" autocomplete_url="https://raw.githubusercontent.com/bbbootstrap/libraries/main/pro-editor-lib/bootstrap5.txt" version_name="Bootstrap 5" selected="selected">Bootstrap 5 - 5.0.1</option>
+                                            <option value="10" mytag="5.0.0 Beta" is_react="0" myjs_1="" myjs_2="" myjs="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" js_required="0" mycss="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" autocomplete_url="https://raw.githubusercontent.com/bbbootstrap/libraries/main/pro-editor-lib/bootstrap5.txt" version_name="Bootstrap 5">Bootstrap 5 - 5.0.0 Beta</option>
+                                            <option value="8" mytag="5.0.0" is_react="0" myjs_1="" myjs_2="" myjs="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js" js_required="1" mycss="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" autocomplete_url="https://raw.githubusercontent.com/bbbootstrap/libraries/main/pro-editor-lib/bootstrap5.txt" version_name="Bootstrap 5">Bootstrap 5 - 5.0.0</option>
+                                            <option value="7" mytag="4.4.1" is_react="0" myjs_1="" myjs_2="" myjs="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" js_required="1" mycss="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" autocomplete_url="https://raw.githubusercontent.com/asksnbb/bootstraplibraries/main/bootstrap5.txt" version_name="Bootstrap 4">Bootstrap 4 - 4.4.1</option>
+                                            <option value="5" mytag="4.3.1" is_react="0" myjs_1="" myjs_2="" myjs="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" js_required="1" mycss="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" autocomplete_url="" version_name="Bootstrap 4">Bootstrap 4 - 4.3.1</option>
+                                            <option value="3" mytag="4.1.1" is_react="0" myjs_1="" myjs_2="" myjs="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js" js_required="1" mycss="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" autocomplete_url="" version_name="Bootstrap 4">Bootstrap 4 - 4.1.1</option>
+                                            <option value="1" mytag="4.0.0" is_react="0" myjs_1="" myjs_2="" myjs="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js" js_required="1" mycss="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" autocomplete_url="" version_name="Bootstrap 4">Bootstrap 4 - 4.0.0</option>
+                                            <option value="2" mytag="3.3.0" is_react="0" myjs_1="" myjs_2="" myjs="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js" js_required="1" mycss="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" autocomplete_url="" version_name="Bootstrap 3">Bootstrap 3 - 3.3.0</option>
+                                            <option value="4" mytag="3.0.0" is_react="0" myjs_1="" myjs_2="" myjs="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js" js_required="1" mycss="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" autocomplete_url="" version_name="Bootstrap 3">Bootstrap 3 - 3.0.0</option>
+                                            <option value="11" mytag="2.6.12" is_react="0" myjs_1="" myjs_2="" myjs="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js" js_required="0" mycss="https://cdn.jsdelivr.net/gh/asksnbb/libraries@main/blnk.css" autocomplete_url="" version_name="Vue JS">Vue JS - 2.6.12</option>
+                                            <option value="9" mytag="2.1.0" is_react="0" myjs_1="" myjs_2="" myjs="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" js_required="0" mycss="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" autocomplete_url="https://raw.githubusercontent.com/bbbootstrap/libraries/main/pro-editor-lib/tailwind-1.9.txt" version_name="Tailwind css">Tailwind css - 2.1.0</option>
+                                            <option value="13" mytag="17" is_react="1" myjs_1="https://unpkg.com/react-dom/umd/react-dom.development.js" myjs_2="https://unpkg.com/@babel/standalone/babel.min.js" myjs="https://unpkg.com/react/umd/react.development.js" js_required="0" mycss="" autocomplete_url="" version_name="ReactJS">ReactJS - 17</option>
+                                            <option value="6" mytag="" is_react="0" myjs_1="" myjs_2="" myjs="" js_required="1" mycss="" autocomplete_url="" version_name="Pure CSS">Pure CSS - </option>
+                                      </select><div class="nice-select wide select-items" tabindex="0"><span class="current">Bootstrap 4 - 4.0.0</span><div class="nice-select-search-box"><input type="text" class="nice-select-search" placeholder="Search..."></div><ul class="list"><li data-value="12" class="option">Bootstrap 5 - 5.0.1</li><li data-value="10" class="option">Bootstrap 5 - 5.0.0 Beta</li><li data-value="8" class="option">Bootstrap 5 - 5.0.0</li><li data-value="7" class="option">Bootstrap 4 - 4.4.1</li><li data-value="5" class="option">Bootstrap 4 - 4.3.1</li><li data-value="3" class="option">Bootstrap 4 - 4.1.1</li><li data-value="1" class="option selected focus">Bootstrap 4 - 4.0.0</li><li data-value="2" class="option">Bootstrap 3 - 3.3.0</li><li data-value="4" class="option">Bootstrap 3 - 3.0.0</li><li data-value="11" class="option">Vue JS - 2.6.12</li><li data-value="9" class="option">Tailwind css - 2.1.0</li><li data-value="13" class="option">ReactJS - 17</li><li data-value="6" class="option">Pure CSS - </li></ul></div>
+            </div>
+
+            
+                <div id="jquery-container" class="mb-2">
+                    <br> <br>
+                    <select class="wide select-items" id="js_version" style="display: none;">
+                                                                                                <option value="1" myjslink="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" mytag="3.2.1" selected="selected">jQuery 3.2.1</option>
+                                                                        
+                                                                    <option value="4" myjslink="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js" mytag="2.6.12">Vue JS - 2.6.12</option>
+                                                                        
+                                                                    <option value="2" myjslink="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" mytag="2.2.4">jQuery 2.2.4</option>
+                                                                        
+                                                                    <option value="3" myjslink="" mytag="">No Jquery</option>
+                                                                                          </select><div class="nice-select wide select-items" tabindex="0"><span class="current">jQuery 3.2.1</span><div class="nice-select-search-box"><input type="text" class="nice-select-search" placeholder="Search..."></div><ul class="list"><li data-value="1" class="option selected focus">jQuery 3.2.1</li><li data-value="4" class="option">Vue JS - 2.6.12</li><li data-value="2" class="option">jQuery 2.2.4</li><li data-value="3" class="option">No Jquery</li></ul></div>
+                </div>
+
+            
+
+                <br><br>
+            <div class="mb-2" id="font-container">
+                <select class="wide select-items" id="snippet_fonts" style="display: none;">
+                                            <option value="1" mytag="" selected="selected">No Fonts </option>
+                                            <option value="8" mytag="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">Bootstrap Icons 1.4.0</option>
+                                            <option value="10" mytag="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">Bootstrap Icons 1.7</option>
+                                            <option value="7" mytag="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">Box Icons 2.0.7</option>
+                                            <option value="9" mytag="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">Unicons 2.1.9 2.1.9</option>
+                                            <option value="5" mytag="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.6.95/css/materialdesignicons.css">Material Design 3.6.95</option>
+                                            <option value="2" mytag="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">Font Awesome 4.0.3</option>
+                                            <option value="6" mytag="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">Font Awesome 4.7.0</option>
+                                            <option value="3" mytag="https://use.fontawesome.com/releases/v5.7.2/css/all.css">Font Awesome 5.7.2</option>
+                                            <option value="4" mytag="https://use.fontawesome.com/releases/v5.8.1/css/all.css">Font Awesome 5.8.1</option>
+                                      </select><div class="nice-select wide select-items" tabindex="0"><span class="current">Font Awesome - 4.0.3</span><div class="nice-select-search-box"><input type="text" class="nice-select-search" placeholder="Search..."></div><ul class="list"><li data-value="1" class="option">No Fonts </li><li data-value="8" class="option">Bootstrap Icons 1.4.0</li><li data-value="10" class="option">Bootstrap Icons 1.7</li><li data-value="7" class="option">Box Icons 2.0.7</li><li data-value="9" class="option">Unicons 2.1.9 2.1.9</li><li data-value="5" class="option">Material Design 3.6.95</li><li data-value="2" class="option selected focus">Font Awesome 4.0.3</li><li data-value="6" class="option">Font Awesome 4.7.0</li><li data-value="3" class="option">Font Awesome 5.7.2</li><li data-value="4" class="option">Font Awesome 5.8.1</li></ul></div>
+            </div>
+
+            <div class="mt-5">
+              
+                <div class="form-group">
+                  <label class="fs-6" for="formControlRange" style="font-size: 12px;margin-left: 2px;margin-top: 5px;">Change Editor Font Size - <span class="sizenumber">15</span></label>
+                  <input type="range" class="form-control-range" min="15" max="50" onchange="if (!window.__cfRLUnblockHandlers) return false; updateTextInput(this.value);" id="formControlRange" value="33">
+                  <input type="hidden" id="sizeinput" value="15">  
+                </div>
+              
+            </div>
+          
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!--Modal End-->
+
+
+
+
+
+
+
+
+
+
+
+
+<!--Modal POst snippet start-->
+
+   
+    <!-- Modal -->
+    <div class="modal fade" id="postsnippet" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="post-header-title">Save this snippet privately</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+
+            <div id="post_body">
+              <input type="text" id="name_snippet" name="snippet_title" class="form-control snippet_name" value="Payment Form with three different payment options" placeholder="Name of the snippet">
+              
+            
+          </div>
+            
+              
+          </div>
+
+            
+          <div class="modal-footer d-flex justify-content-end align-items-center" id="post_footer">
+
+            <div class="d-flex flex-column">
+              <div class="text-right mb-2">
+                <span id="error" class="text-danger"></span>
+              </div>
+              <div>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button id="post_snippet" type="button" class="btn btn-secondary" data-dismiss="modal">Save Now</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  
+    <!--Modal End-->
+
+
+	<div class="main_container">
+
+		<div id="shield" style="display: none;"></div>
+	<a href="javascript:void(0)" id="dragbar" style="width: 5px; top: 74px; left: 806.5px; height: 693.4px; cursor: col-resize;"></a>
+	<div id="container">
+	  <div id="textareacontainer">
+	    <div id="textarea">
+	      <div id="textareawrapper">
+	         
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+             
+                <div id="htmlEditor" class=" ace_editor ace-monokai ace_dark" style="font-size: 15px;"><textarea class="ace_text-input" autocorrect="off" autocapitalize="none" spellcheck="false" style="opacity: 0; font-size: 1px; height: 1px; width: 1px; top: 496px; left: 508px;" wrap="off">                                &lt;option&gt;Ambank&lt;/option&gt;
+
+</textarea><div class="ace_gutter" aria-hidden="true" style="left: 0px; width: 50px;"><div class="ace_layer ace_gutter-layer ace_folding-enabled" style="height: 1000000px; top: -818px; left: 0px; width: 50px;"><div class="ace_gutter-cell " style="height: 18px; top: 810px;">46<span style="display: none;"></span></div><div class="ace_gutter-cell " style="height: 18px; top: 828px;">47<span style="display: none;"></span></div><div class="ace_gutter-cell " style="height: 18px; top: 846px;">48<span style="display: none; height: 18px;" class="ace_fold-widget ace_start ace_open"></span></div><div class="ace_gutter-cell " style="height: 18px; top: 864px;">49<span style="display: none; height: 18px;" class="ace_fold-widget ace_start ace_open"></span></div><div class="ace_gutter-cell " style="height: 18px; top: 882px;">50<span style="display: inline-block; height: 18px;" class="ace_fold-widget ace_start ace_open"></span></div><div class="ace_gutter-cell  ace_error" style="height: 18px; top: 900px;">51<span style="display: none; height: 18px;" class="ace_fold-widget ace_start ace_open"></span></div><div class="ace_gutter-cell " style="height: 18px; top: 918px;">52<span style="display: none; height: 18px;" class="ace_fold-widget ace_start ace_open"></span></div><div class="ace_gutter-cell " style="height: 18px; top: 936px;">53<span style="display: none;"></span></div><div class="ace_gutter-cell " style="height: 18px; top: 954px;">54<span style="display: none;"></span></div><div class="ace_gutter-cell " style="height: 18px; top: 972px;">55<span style="display: inline-block; height: 18px;" class="ace_fold-widget ace_start ace_open"></span></div><div class="ace_gutter-cell " style="height: 18px; top: 990px;">56<span style="display: none;"></span></div><div class="ace_gutter-cell " style="height: 18px; top: 1008px;">57<span style="display: none;"></span></div><div class="ace_gutter-cell " style="height: 18px; top: 1026px;">58<span style="display: none;"></span></div><div class="ace_gutter-cell " style="height: 18px; top: 1044px;">59<span style="display: none;"></span></div><div class="ace_gutter-cell " style="height: 18px; top: 1062px;">60<span style="display: none; height: 18px;" class="ace_fold-widget ace_start ace_open"></span></div><div class="ace_gutter-cell " style="height: 18px; top: 1080px;">61<span style="display: none; height: 18px;" class="ace_fold-widget ace_start ace_open"></span></div><div class="ace_gutter-cell " style="height: 18px; top: 1098px;">62<span style="display: inline-block; height: 18px;" class="ace_fold-widget ace_start ace_open"></span></div><div class="ace_gutter-cell " style="height: 18px; top: 1116px;">63<span style="display: inline-block; height: 18px;" class="ace_fold-widget ace_start ace_open"></span></div><div class="ace_gutter-cell " style="height: 18px; top: 1134px;">64<span style="display: none;"></span></div><div class="ace_gutter-cell " style="height: 18px; top: 1152px;">65<span style="display: none; height: 18px;" class="ace_fold-widget ace_start ace_open"></span></div><div class="ace_gutter-cell " style="height: 18px; top: 1170px;">66<span style="display: none;"></span></div><div class="ace_gutter-cell  ace_error" style="height: 18px; top: 1188px;">67<span style="display: none;"></span></div><div class="ace_gutter-cell " style="height: 18px; top: 1206px;">68<span style="display: none;"></span></div><div class="ace_gutter-cell " style="height: 18px; top: 1224px;">69<span style="display: none; height: 18px;" class="ace_fold-widget ace_start ace_open"></span></div><div class="ace_gutter-cell " style="height: 18px; top: 1242px;">70<span style="display: none;"></span></div><div class="ace_gutter-cell " style="height: 18px; top: 1260px;">71<span style="display: none;"></span></div><div class="ace_gutter-cell " style="height: 18px; top: 1278px;">72<span style="display: none; height: 18px;" class="ace_fold-widget ace_start ace_open"></span></div><div class="ace_gutter-active-line ace_gutter-cell " style="height: 18px; top: 1296px;">73<span style="display: none;"></span></div><div class="ace_gutter-cell " style="height: 18px; top: 1314px;">74<span style="display: none; height: 18px;" class="ace_fold-widget ace_start ace_open"></span></div><div class="ace_gutter-cell " style="height: 18px; top: 1332px;">75<span style="display: inline-block; height: 18px;" class="ace_fold-widget ace_start ace_open"></span></div><div class="ace_gutter-cell " style="height: 18px; top: 1350px;">76<span style="display: none;"></span></div><div class="ace_gutter-cell " style="height: 18px; top: 1368px;">77<span style="display: none; height: 18px;" class="ace_fold-widget ace_start ace_open"></span></div><div class="ace_gutter-cell " style="height: 18px; top: 1386px;">78<span style="display: none; height: 18px;" class="ace_fold-widget ace_start ace_open"></span></div><div class="ace_gutter-cell " style="height: 18px; top: 1404px;">79<span style="display: none; height: 18px;" class="ace_fold-widget ace_start ace_open"></span></div><div class="ace_gutter-cell " style="height: 18px; top: 1422px;">80<span style="display: none;"></span></div><div class="ace_gutter-cell " style="height: 18px; top: 1440px;">81<span style="display: none; height: 18px;" class="ace_fold-widget ace_start ace_open"></span></div><div class="ace_gutter-cell " style="height: 18px; top: 1458px;">82<span style="display: none; height: 18px;" class="ace_fold-widget ace_start ace_open"></span></div><div class="ace_gutter-cell " style="height: 18px; top: 1476px;">83<span style="display: none; height: 18px;" class="ace_fold-widget ace_start ace_open"></span></div><div class="ace_gutter-cell  ace_error" style="height: 18px; top: 1494px;">84<span style="display: none; height: 18px;" class="ace_fold-widget ace_start ace_open"></span></div></div></div><div class="ace_scroller" style="line-height: 18px; left: 50px; right: 17px; bottom: 0px;"><div class="ace_content" style="top: -8px; left: 0px; width: 2095px; height: 712px;"><div class="ace_layer ace_print-margin-layer"><div class="ace_print-margin" style="left: 664px; visibility: visible;"></div></div><div class="ace_layer ace_marker-layer"><div style="height: 18px; top: 486px; left: 0px; right: 0px;" class="ace_active-line"></div></div><div class="ace_layer ace_text-layer" style="height: 1000000px; margin: 0px 4px; top: -810px; left: 0px;"><div style="height: 18px; top: 810px;" class="ace_line"><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_text ace_xml">    </span><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_tag-name ace_xml">h6</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_text ace_xml">CVV </span><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_tag-name ace_xml">i</span><span class="ace_text ace_tag-whitespace ace_xml"> </span><span class="ace_entity ace_other ace_attribute-name ace_xml">class</span><span class="ace_keyword ace_operator ace_attribute-equals ace_xml">=</span><span class="ace_string ace_attribute-value ace_xml">"fa fa-question-circle d-inline"</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_tag-name ace_xml">i</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_tag-name ace_xml">h6</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span></div><div style="height: 18px; top: 828px;" class="ace_line"><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_text ace_xml">    </span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_form ace_tag-name ace_xml">label</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_text ace_xml"> </span><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_form ace_tag-name ace_xml">input</span><span class="ace_text ace_tag-whitespace ace_xml"> </span><span class="ace_entity ace_other ace_attribute-name ace_xml">type</span><span class="ace_keyword ace_operator ace_attribute-equals ace_xml">=</span><span class="ace_string ace_attribute-value ace_xml">"text"</span><span class="ace_text ace_tag-whitespace ace_xml"> </span><span class="ace_entity ace_other ace_attribute-name ace_xml">required</span><span class="ace_text ace_tag-whitespace ace_xml"> </span><span class="ace_entity ace_other ace_attribute-name ace_xml">class</span><span class="ace_keyword ace_operator ace_attribute-equals ace_xml">=</span><span class="ace_string ace_attribute-value ace_xml">"form-control"</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_text ace_xml"> </span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_tag-name ace_xml">div</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span></div><div style="height: 18px; top: 846px;" class="ace_line"><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_text ace_xml">    </span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_tag-name ace_xml">div</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span></div><div style="height: 18px; top: 864px;" class="ace_line"><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_text ace_xml">    </span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_tag-name ace_xml">div</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span></div><div style="height: 18px; top: 882px;" class="ace_line"><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_text ace_xml">    </span><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_tag-name ace_xml">div</span><span class="ace_text ace_tag-whitespace ace_xml"> </span><span class="ace_entity ace_other ace_attribute-name ace_xml">class</span><span class="ace_keyword ace_operator ace_attribute-equals ace_xml">=</span><span class="ace_string ace_attribute-value ace_xml">"card-footer"</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_text ace_xml"> </span><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_form ace_tag-name ace_xml">button</span><span class="ace_text ace_tag-whitespace ace_xml"> </span><span class="ace_entity ace_other ace_attribute-name ace_xml">type</span><span class="ace_keyword ace_operator ace_attribute-equals ace_xml">=</span><span class="ace_string ace_attribute-value ace_xml">"button"</span><span class="ace_text ace_tag-whitespace ace_xml"> </span><span class="ace_entity ace_other ace_attribute-name ace_xml">class</span><span class="ace_keyword ace_operator ace_attribute-equals ace_xml">=</span><span class="ace_string ace_attribute-value ace_xml">"subscribe btn btn-primary btn-block shadow-sm"</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_text ace_xml"> Confirm Payment </span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_form ace_tag-name ace_xml">button</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span></div><div style="height: 18px; top: 900px;" class="ace_line"><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_text ace_xml">    </span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_form ace_tag-name ace_xml">form</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span></div><div style="height: 18px; top: 918px;" class="ace_line"><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_text ace_xml">    </span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_tag-name ace_xml">div</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span></div><div style="height: 18px; top: 936px;" class="ace_line"><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_text ace_xml">    </span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_tag-name ace_xml">div</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_text ace_xml"> </span><span class="ace_comment ace_start ace_xml">&lt;!--</span><span class="ace_comment ace_xml"> End </span><span class="ace_comment ace_end ace_xml">--&gt;</span></div><div style="height: 18px; top: 954px;" class="ace_line"><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_text ace_xml">    </span><span class="ace_comment ace_start ace_xml">&lt;!--</span><span class="ace_comment ace_xml"> Paypal info </span><span class="ace_comment ace_end ace_xml">--&gt;</span></div><div style="height: 18px; top: 972px;" class="ace_line"><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_text ace_xml">    </span><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_tag-name ace_xml">div</span><span class="ace_text ace_tag-whitespace ace_xml"> </span><span class="ace_entity ace_other ace_attribute-name ace_xml">id</span><span class="ace_keyword ace_operator ace_attribute-equals ace_xml">=</span><span class="ace_string ace_attribute-value ace_xml">"paypal"</span><span class="ace_text ace_tag-whitespace ace_xml"> </span><span class="ace_entity ace_other ace_attribute-name ace_xml">class</span><span class="ace_keyword ace_operator ace_attribute-equals ace_xml">=</span><span class="ace_string ace_attribute-value ace_xml">"tab-pane fade pt-3"</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span></div><div style="height: 18px; top: 990px;" class="ace_line"><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_text ace_xml">    </span><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_tag-name ace_xml">h6</span><span class="ace_text ace_tag-whitespace ace_xml"> </span><span class="ace_entity ace_other ace_attribute-name ace_xml">class</span><span class="ace_keyword ace_operator ace_attribute-equals ace_xml">=</span><span class="ace_string ace_attribute-value ace_xml">"pb-2"</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_text ace_xml">Select your paypal account type</span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_tag-name ace_xml">h6</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span></div><div style="height: 18px; top: 1008px;" class="ace_line"><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_text ace_xml">    </span><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_tag-name ace_xml">div</span><span class="ace_text ace_tag-whitespace ace_xml"> </span><span class="ace_entity ace_other ace_attribute-name ace_xml">class</span><span class="ace_keyword ace_operator ace_attribute-equals ace_xml">=</span><span class="ace_string ace_attribute-value ace_xml">"form-group "</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_text ace_xml"> </span><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_form ace_tag-name ace_xml">label</span><span class="ace_text ace_tag-whitespace ace_xml"> </span><span class="ace_entity ace_other ace_attribute-name ace_xml">class</span><span class="ace_keyword ace_operator ace_attribute-equals ace_xml">=</span><span class="ace_string ace_attribute-value ace_xml">"radio-inline"</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_text ace_xml"> </span><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_form ace_tag-name ace_xml">input</span><span class="ace_text ace_tag-whitespace ace_xml"> </span><span class="ace_entity ace_other ace_attribute-name ace_xml">type</span><span class="ace_keyword ace_operator ace_attribute-equals ace_xml">=</span><span class="ace_string ace_attribute-value ace_xml">"radio"</span><span class="ace_text ace_tag-whitespace ace_xml"> </span><span class="ace_entity ace_other ace_attribute-name ace_xml">name</span><span class="ace_keyword ace_operator ace_attribute-equals ace_xml">=</span><span class="ace_string ace_attribute-value ace_xml">"optradio"</span><span class="ace_text ace_tag-whitespace ace_xml"> </span><span class="ace_entity ace_other ace_attribute-name ace_xml">checked</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_text ace_xml"> Domestic </span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_form ace_tag-name ace_xml">label</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_text ace_xml"> </span><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_form ace_tag-name ace_xml">label</span><span class="ace_text ace_tag-whitespace ace_xml"> </span><span class="ace_entity ace_other ace_attribute-name ace_xml">class</span><span class="ace_keyword ace_operator ace_attribute-equals ace_xml">=</span><span class="ace_string ace_attribute-value ace_xml">"radio-inline"</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_text ace_xml"> </span><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_form ace_tag-name ace_xml">input</span><span class="ace_text ace_tag-whitespace ace_xml"> </span><span class="ace_entity ace_other ace_attribute-name ace_xml">type</span><span class="ace_keyword ace_operator ace_attribute-equals ace_xml">=</span><span class="ace_string ace_attribute-value ace_xml">"radio"</span><span class="ace_text ace_tag-whitespace ace_xml"> </span><span class="ace_entity ace_other ace_attribute-name ace_xml">name</span><span class="ace_keyword ace_operator ace_attribute-equals ace_xml">=</span><span class="ace_string ace_attribute-value ace_xml">"optradio"</span><span class="ace_text ace_tag-whitespace ace_xml"> </span><span class="ace_entity ace_other ace_attribute-name ace_xml">class</span><span class="ace_keyword ace_operator ace_attribute-equals ace_xml">=</span><span class="ace_string ace_attribute-value ace_xml">"ml-5"</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_text ace_xml">International </span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_form ace_tag-name ace_xml">label</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_tag-name ace_xml">div</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span></div><div style="height: 18px; top: 1026px;" class="ace_line"><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_text ace_xml">    </span><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_tag-name ace_xml">p</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_text ace_xml"> </span><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_form ace_tag-name ace_xml">button</span><span class="ace_text ace_tag-whitespace ace_xml"> </span><span class="ace_entity ace_other ace_attribute-name ace_xml">type</span><span class="ace_keyword ace_operator ace_attribute-equals ace_xml">=</span><span class="ace_string ace_attribute-value ace_xml">"button"</span><span class="ace_text ace_tag-whitespace ace_xml"> </span><span class="ace_entity ace_other ace_attribute-name ace_xml">class</span><span class="ace_keyword ace_operator ace_attribute-equals ace_xml">=</span><span class="ace_string ace_attribute-value ace_xml">"btn btn-primary "</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_tag-name ace_xml">i</span><span class="ace_text ace_tag-whitespace ace_xml"> </span><span class="ace_entity ace_other ace_attribute-name ace_xml">class</span><span class="ace_keyword ace_operator ace_attribute-equals ace_xml">=</span><span class="ace_string ace_attribute-value ace_xml">"fab fa-paypal mr-2"</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_tag-name ace_xml">i</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_text ace_xml"> Log into my Paypal</span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_form ace_tag-name ace_xml">button</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_text ace_xml"> </span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_tag-name ace_xml">p</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span></div><div style="height: 18px; top: 1044px;" class="ace_line"><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_text ace_xml">    </span><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_tag-name ace_xml">p</span><span class="ace_text ace_tag-whitespace ace_xml"> </span><span class="ace_entity ace_other ace_attribute-name ace_xml">class</span><span class="ace_keyword ace_operator ace_attribute-equals ace_xml">=</span><span class="ace_string ace_attribute-value ace_xml">"text-muted"</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_text ace_xml"> Note: After clicking on the button, you will be directed to a secure gateway for payment. After completing the payment process, you will be redirected back to the website to view details of your order. </span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_tag-name ace_xml">p</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span></div><div style="height: 18px; top: 1062px;" class="ace_line"><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_text ace_xml">    </span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_tag-name ace_xml">div</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_text ace_xml"> </span><span class="ace_comment ace_start ace_xml">&lt;!--</span><span class="ace_comment ace_xml"> End </span><span class="ace_comment ace_end ace_xml">--&gt;</span></div><div style="height: 18px; top: 1080px;" class="ace_line"><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_text ace_xml">    </span><span class="ace_comment ace_start ace_xml">&lt;!--</span><span class="ace_comment ace_xml"> bank transfer info </span><span class="ace_comment ace_end ace_xml">--&gt;</span></div><div style="height: 18px; top: 1098px;" class="ace_line"><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_text ace_xml">    </span><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_tag-name ace_xml">div</span><span class="ace_text ace_tag-whitespace ace_xml"> </span><span class="ace_entity ace_other ace_attribute-name ace_xml">id</span><span class="ace_keyword ace_operator ace_attribute-equals ace_xml">=</span><span class="ace_string ace_attribute-value ace_xml">"net-banking"</span><span class="ace_text ace_tag-whitespace ace_xml"> </span><span class="ace_entity ace_other ace_attribute-name ace_xml">class</span><span class="ace_keyword ace_operator ace_attribute-equals ace_xml">=</span><span class="ace_string ace_attribute-value ace_xml">"tab-pane fade pt-3"</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span></div><div style="height: 18px; top: 1116px;" class="ace_line"><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_text ace_xml">    </span><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_tag-name ace_xml">div</span><span class="ace_text ace_tag-whitespace ace_xml"> </span><span class="ace_entity ace_other ace_attribute-name ace_xml">class</span><span class="ace_keyword ace_operator ace_attribute-equals ace_xml">=</span><span class="ace_string ace_attribute-value ace_xml">"form-group "</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_text ace_xml"> </span><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_form ace_tag-name ace_xml">label</span><span class="ace_text ace_tag-whitespace ace_xml"> </span><span class="ace_entity ace_other ace_attribute-name ace_xml">for</span><span class="ace_keyword ace_operator ace_attribute-equals ace_xml">=</span><span class="ace_string ace_attribute-value ace_xml">"Select Your Bank"</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span></div><div style="height: 18px; top: 1134px;" class="ace_line"><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_text ace_xml">    </span><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_tag-name ace_xml">h6</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_text ace_xml">Select your Bank</span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_tag-name ace_xml">h6</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span></div><div style="height: 18px; top: 1152px;" class="ace_line"><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_text ace_xml">    </span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_form ace_tag-name ace_xml">label</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_text ace_xml"> </span><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_form ace_tag-name ace_xml">select</span><span class="ace_text ace_tag-whitespace ace_xml"> </span><span class="ace_entity ace_other ace_attribute-name ace_xml">class</span><span class="ace_keyword ace_operator ace_attribute-equals ace_xml">=</span><span class="ace_string ace_attribute-value ace_xml">"form-control"</span><span class="ace_text ace_tag-whitespace ace_xml"> </span><span class="ace_entity ace_other ace_attribute-name ace_xml">id</span><span class="ace_keyword ace_operator ace_attribute-equals ace_xml">=</span><span class="ace_string ace_attribute-value ace_xml">"ccmonth"</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span></div><div style="height: 18px; top: 1170px;" class="ace_line"><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_text ace_xml">    </span><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_form ace_tag-name ace_xml">option</span><span class="ace_text ace_tag-whitespace ace_xml"> </span><span class="ace_entity ace_other ace_attribute-name ace_xml">value</span><span class="ace_keyword ace_operator ace_attribute-equals ace_xml">=</span><span class="ace_string ace_attribute-value ace_xml">""</span><span class="ace_text ace_tag-whitespace ace_xml"> </span><span class="ace_entity ace_other ace_attribute-name ace_xml">selected</span><span class="ace_text ace_tag-whitespace ace_xml"> </span><span class="ace_entity ace_other ace_attribute-name ace_xml">disabled</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_text ace_xml">--Please select your Bank--</span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_form ace_tag-name ace_xml">option</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span></div><div style="height: 18px; top: 1188px;" class="ace_line"><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_text ace_xml">    </span><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_form ace_tag-name ace_xml">option</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_anchor ace_tag-name ace_xml">a</span><span class="ace_text ace_tag-whitespace ace_xml"> </span><span class="ace_entity ace_other ace_attribute-name ace_xml">href</span><span class="ace_keyword ace_operator ace_attribute-equals ace_xml">=</span><span class="ace_string ace_attribute-value ace_xml">"https://www.youtube.com/"</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_text ace_xml">Maybank</span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_anchor ace_tag-name ace_xml">a</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_form ace_tag-name ace_xml">option</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span></div><div style="height: 18px; top: 1206px;" class="ace_line"><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_text ace_xml">    </span><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_form ace_tag-name ace_xml">option</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_text ace_xml">CIMB Clicks</span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_form ace_tag-name ace_xml">option</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span></div><div style="height: 18px; top: 1224px;" class="ace_line"><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_text ace_xml">    </span><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_form ace_tag-name ace_xml">option</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_text ace_xml">MyBSN</span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_form ace_tag-name ace_xml">option</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span></div><div style="height: 18px; top: 1242px;" class="ace_line"><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_text ace_xml">    </span><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_form ace_tag-name ace_xml">option</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_text ace_xml">Bank Rakyat</span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_form ace_tag-name ace_xml">option</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span></div><div style="height: 18px; top: 1260px;" class="ace_line"><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_text ace_xml">    </span><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_form ace_tag-name ace_xml">option</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_text ace_xml">Bank Islam</span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_form ace_tag-name ace_xml">option</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span></div><div style="height: 18px; top: 1278px;" class="ace_line"><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_text ace_xml">    </span><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_form ace_tag-name ace_xml">option</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_text ace_xml">Ambank</span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_form ace_tag-name ace_xml">option</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span></div><div style="height: 18px; top: 1296px;" class="ace_line"><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_text ace_xml">    </span><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_form ace_tag-name ace_xml">option</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_text ace_xml">Ambank</span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_form ace_tag-name ace_xml">option</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span></div><div style="height: 18px; top: 1314px;" class="ace_line"><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_text ace_xml">    </span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_form ace_tag-name ace_xml">select</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_text ace_xml"> </span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_tag-name ace_xml">div</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span></div><div style="height: 18px; top: 1332px;" class="ace_line"><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_text ace_xml">    </span><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_tag-name ace_xml">div</span><span class="ace_text ace_tag-whitespace ace_xml"> </span><span class="ace_entity ace_other ace_attribute-name ace_xml">class</span><span class="ace_keyword ace_operator ace_attribute-equals ace_xml">=</span><span class="ace_string ace_attribute-value ace_xml">"form-group"</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span></div><div style="height: 18px; top: 1350px;" class="ace_line"><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_text ace_xml">    </span><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_tag-name ace_xml">p</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_text ace_xml"> </span><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_form ace_tag-name ace_xml">button</span><span class="ace_text ace_tag-whitespace ace_xml"> </span><span class="ace_entity ace_other ace_attribute-name ace_xml">type</span><span class="ace_keyword ace_operator ace_attribute-equals ace_xml">=</span><span class="ace_string ace_attribute-value ace_xml">"button"</span><span class="ace_text ace_tag-whitespace ace_xml"> </span><span class="ace_entity ace_other ace_attribute-name ace_xml">class</span><span class="ace_keyword ace_operator ace_attribute-equals ace_xml">=</span><span class="ace_string ace_attribute-value ace_xml">"btn btn-primary "</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_tag-name ace_xml">i</span><span class="ace_text ace_tag-whitespace ace_xml"> </span><span class="ace_entity ace_other ace_attribute-name ace_xml">class</span><span class="ace_keyword ace_operator ace_attribute-equals ace_xml">=</span><span class="ace_string ace_attribute-value ace_xml">"fas fa-mobile-alt mr-2"</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_tag-name ace_xml">i</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_text ace_xml"> Proceed Payment</span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_form ace_tag-name ace_xml">button</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_text ace_xml"> </span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_tag-name ace_xml">p</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span></div><div style="height: 18px; top: 1368px;" class="ace_line"><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_text ace_xml">    </span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_tag-name ace_xml">div</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span></div><div style="height: 18px; top: 1386px;" class="ace_line"><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_text ace_xml">    </span><span class="ace_meta ace_tag ace_punctuation ace_tag-open ace_xml">&lt;</span><span class="ace_meta ace_tag ace_tag-name ace_xml">p</span><span class="ace_text ace_tag-whitespace ace_xml"> </span><span class="ace_entity ace_other ace_attribute-name ace_xml">class</span><span class="ace_keyword ace_operator ace_attribute-equals ace_xml">=</span><span class="ace_string ace_attribute-value ace_xml">"text-muted"</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_text ace_xml">Note: After clicking on the button, you will be directed to a secure gateway for payment. After completing the payment process, you will be redirected back to the website to view details of your order. </span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_tag-name ace_xml">p</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span></div><div style="height: 18px; top: 1404px;" class="ace_line"><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_text ace_xml">    </span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_tag-name ace_xml">div</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span><span class="ace_text ace_xml"> </span><span class="ace_comment ace_start ace_xml">&lt;!--</span><span class="ace_comment ace_xml"> End </span><span class="ace_comment ace_end ace_xml">--&gt;</span></div><div style="height: 18px; top: 1422px;" class="ace_line"><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_text ace_xml">    </span><span class="ace_comment ace_start ace_xml">&lt;!--</span><span class="ace_comment ace_xml"> End </span><span class="ace_comment ace_end ace_xml">--&gt;</span></div><div style="height: 18px; top: 1440px;" class="ace_line"><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_text ace_xml">    </span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_tag-name ace_xml">div</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span></div><div style="height: 18px; top: 1458px;" class="ace_line"><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span><span class="ace_text ace_xml">    </span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_tag-name ace_xml">div</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span></div><div style="height: 18px; top: 1476px;" class="ace_line"><span class="ace_indent-guide">    </span><span class="ace_text ace_xml">    </span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_tag-name ace_xml">div</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span></div><div style="height: 18px; top: 1494px;" class="ace_line"><span class="ace_text ace_xml">    </span><span class="ace_meta ace_tag ace_punctuation ace_end-tag-open ace_xml">&lt;/</span><span class="ace_meta ace_tag ace_tag-name ace_xml">div</span><span class="ace_meta ace_tag ace_punctuation ace_tag-close ace_xml">&gt;</span></div></div><div class="ace_layer ace_marker-layer"></div><div class="ace_layer ace_cursor-layer ace_hidden-cursors"><div class="ace_cursor" style="display: block; top: 486px; left: 458px; width: 8px; height: 18px; animation-duration: 1000ms;"></div></div></div></div><div class="ace_scrollbar ace_scrollbar-v" style="width: 22px; bottom: 17px;"><div class="ace_scrollbar-inner" style="width: 22px; height: 1512px;">&nbsp;</div></div><div class="ace_scrollbar ace_scrollbar-h" style="height: 22px; left: 50px; right: 17px;"><div class="ace_scrollbar-inner" style="height: 22px; width: 2095px;">&nbsp;</div></div><div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font: inherit; overflow: hidden;"><div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font: inherit; overflow: visible;">הההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההה</div><div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font-style: inherit; font-variant: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; font-size-adjust: inherit; font-kerning: inherit; font-optical-sizing: inherit; font-language-override: inherit; font-feature-settings: inherit; font-variation-settings: inherit; overflow: visible;">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</div></div></div>
+            </div>
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <div id="cssEditor" class="garlic-auto-save ace_editor ace-monokai ace_dark" style="font-size: 15px;"><textarea class="ace_text-input" autocorrect="off" autocapitalize="none" spellcheck="false" style="opacity: 0; font-size: 1px;" wrap="off"></textarea><div class="ace_gutter" aria-hidden="true"><div class="ace_layer ace_gutter-layer ace_folding-enabled" style="height: 1000000px;"></div></div><div class="ace_scroller" style="line-height: 0px;"><div class="ace_content"><div class="ace_layer ace_print-margin-layer"><div class="ace_print-margin" style="left: 4px; visibility: visible;"></div></div><div class="ace_layer ace_marker-layer"></div><div class="ace_layer ace_text-layer" style="height: 1000000px; margin: 0px 4px;"></div><div class="ace_layer ace_marker-layer"></div><div class="ace_layer ace_cursor-layer ace_hidden-cursors"><div class="ace_cursor"></div></div></div></div><div class="ace_scrollbar ace_scrollbar-v" style="display: none; width: 22px;"><div class="ace_scrollbar-inner" style="width: 22px;">&nbsp;</div></div><div class="ace_scrollbar ace_scrollbar-h" style="display: none; height: 22px;"><div class="ace_scrollbar-inner" style="height: 22px;">&nbsp;</div></div><div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font: inherit; overflow: hidden;"><div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font: inherit; overflow: visible;"></div><div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font: inherit; overflow: visible;">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</div></div></div>
+            </div>
+            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                <div id="jsEditor" class=" ace_editor ace-monokai ace_dark" style="font-size: 15px;"><textarea class="ace_text-input" autocorrect="off" autocapitalize="none" spellcheck="false" style="opacity: 0; font-size: 1px;" wrap="off"></textarea><div class="ace_gutter" aria-hidden="true"><div class="ace_layer ace_gutter-layer ace_folding-enabled" style="height: 1000000px;"></div></div><div class="ace_scroller" style="line-height: 0px;"><div class="ace_content"><div class="ace_layer ace_print-margin-layer"><div class="ace_print-margin" style="left: 4px; visibility: visible;"></div></div><div class="ace_layer ace_marker-layer"></div><div class="ace_layer ace_text-layer" style="height: 1000000px; margin: 0px 4px;"></div><div class="ace_layer ace_marker-layer"></div><div class="ace_layer ace_cursor-layer ace_hidden-cursors"><div class="ace_cursor"></div></div></div></div><div class="ace_scrollbar ace_scrollbar-v" style="display: none; width: 22px;"><div class="ace_scrollbar-inner" style="width: 22px;">&nbsp;</div></div><div class="ace_scrollbar ace_scrollbar-h" style="display: none; height: 22px;"><div class="ace_scrollbar-inner" style="height: 22px;">&nbsp;</div></div><div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font: inherit; overflow: hidden;"><div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font: inherit; overflow: visible;"></div><div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font: inherit; overflow: visible;">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</div></div></div>
+            </div>
+        <input type="hidden" value="&lt;title&gt;E-Tamu&lt;/title&gt;
+&lt;div class=&quot;container py-5&quot;&gt; &lt;!-- For demo purpose --&gt; &lt;div class=&quot;row mb-4&quot;&gt; &lt;div class=&quot;col-lg-8 mx-auto text-center&quot;&gt; &lt;h1 class=&quot;display-6&quot;&gt;E-Tamu&lt;/h1&gt; &lt;/div&gt; &lt;/div&gt; &lt;!-- End --&gt; &lt;div class=&quot;row&quot;&gt; &lt;div class=&quot;col-lg-6 mx-auto&quot;&gt; &lt;div class=&quot;card &quot;&gt; &lt;div class=&quot;card-header&quot;&gt; &lt;div class=&quot;bg-white shadow-sm pt-4 pl-2 pr-2 pb-2&quot;&gt; &lt;!-- Credit card form tabs --&gt; &lt;ul role=&quot;tablist&quot; class=&quot;nav bg-light nav-pills rounded nav-fill mb-3&quot;&gt; &lt;li class=&quot;nav-item&quot;&gt; &lt;a data-toggle=&quot;pill&quot; href=&quot;#credit-card&quot; class=&quot;nav-link active &quot;&gt; &lt;i class=&quot;fas fa-credit-card mr-2&quot;&gt;&lt;/i&gt; Credit Card &lt;/a&gt; &lt;/li&gt; &lt;li class=&quot;nav-item&quot;&gt; &lt;a data-toggle=&quot;pill&quot; href=&quot;#paypal&quot; class=&quot;nav-link &quot;&gt; &lt;i class=&quot;fab fa-paypal mr-2&quot;&gt;&lt;/i&gt; Paypal &lt;/a&gt; &lt;/li&gt; &lt;li class=&quot;nav-item&quot;&gt; &lt;a data-toggle=&quot;pill&quot; href=&quot;#net-banking&quot; class=&quot;nav-link &quot;&gt; &lt;i class=&quot;fas fa-mobile-alt mr-2&quot;&gt;&lt;/i&gt; Net Banking &lt;/a&gt; &lt;/li&gt; &lt;/ul&gt; &lt;/div&gt; &lt;!-- End --&gt; &lt;!-- Credit card form content --&gt; &lt;div class=&quot;tab-content&quot;&gt; &lt;!-- credit card info--&gt; &lt;div id=&quot;credit-card&quot; class=&quot;tab-pane fade show active pt-3&quot;&gt; &lt;form role=&quot;form&quot; onsubmit=&quot;event.preventDefault()&quot;&gt; &lt;div class=&quot;form-group&quot;&gt; &lt;label for=&quot;username&quot;&gt; &lt;h6&gt;Card Owner&lt;/h6&gt; &lt;/label&gt; &lt;input type=&quot;text&quot; name=&quot;username&quot; placeholder=&quot;Card Owner Name&quot; required class=&quot;form-control &quot;&gt; &lt;/div&gt; &lt;div class=&quot;form-group&quot;&gt; &lt;label for=&quot;cardNumber&quot;&gt; &lt;h6&gt;Card number&lt;/h6&gt; &lt;/label&gt; &lt;div class=&quot;input-group&quot;&gt; &lt;input type=&quot;text&quot; name=&quot;cardNumber&quot; placeholder=&quot;Valid card number&quot; class=&quot;form-control &quot; required&gt; &lt;div class=&quot;input-group-append&quot;&gt; &lt;span class=&quot;input-group-text text-muted&quot;&gt; &lt;i class=&quot;fab fa-cc-visa mx-1&quot;&gt;&lt;/i&gt; &lt;i class=&quot;fab fa-cc-mastercard mx-1&quot;&gt;&lt;/i&gt; &lt;i class=&quot;fab fa-cc-amex mx-1&quot;&gt;&lt;/i&gt; &lt;/span&gt; &lt;/div&gt; &lt;/div&gt; &lt;/div&gt; &lt;div class=&quot;row&quot;&gt; &lt;div class=&quot;col-sm-8&quot;&gt; &lt;div class=&quot;form-group&quot;&gt; &lt;label&gt;&lt;span class=&quot;hidden-xs&quot;&gt; &lt;h6&gt;Expiration Date&lt;/h6&gt; &lt;/span&gt;&lt;/label&gt; &lt;div class=&quot;input-group&quot;&gt; &lt;input type=&quot;number&quot; placeholder=&quot;MM&quot; name=&quot;&quot; class=&quot;form-control&quot; required&gt; &lt;input type=&quot;number&quot; placeholder=&quot;YY&quot; name=&quot;&quot; class=&quot;form-control&quot; required&gt; &lt;/div&gt; &lt;/div&gt; &lt;/div&gt; &lt;div class=&quot;col-sm-4&quot;&gt; &lt;div class=&quot;form-group mb-4&quot;&gt; &lt;label data-toggle=&quot;tooltip&quot; title=&quot;Three digit CV code on the back of your card&quot;&gt; &lt;h6&gt;CVV &lt;i class=&quot;fa fa-question-circle d-inline&quot;&gt;&lt;/i&gt;&lt;/h6&gt; &lt;/label&gt; &lt;input type=&quot;text&quot; required class=&quot;form-control&quot;&gt; &lt;/div&gt; &lt;/div&gt; &lt;/div&gt; &lt;div class=&quot;card-footer&quot;&gt; &lt;button type=&quot;button&quot; class=&quot;subscribe btn btn-primary btn-block shadow-sm&quot;&gt; Confirm Payment &lt;/button&gt; &lt;/form&gt; &lt;/div&gt; &lt;/div&gt; &lt;!-- End --&gt; &lt;!-- Paypal info --&gt; &lt;div id=&quot;paypal&quot; class=&quot;tab-pane fade pt-3&quot;&gt; &lt;h6 class=&quot;pb-2&quot;&gt;Select your paypal account type&lt;/h6&gt; &lt;div class=&quot;form-group &quot;&gt; &lt;label class=&quot;radio-inline&quot;&gt; &lt;input type=&quot;radio&quot; name=&quot;optradio&quot; checked&gt; Domestic &lt;/label&gt; &lt;label class=&quot;radio-inline&quot;&gt; &lt;input type=&quot;radio&quot; name=&quot;optradio&quot; class=&quot;ml-5&quot;&gt;International &lt;/label&gt;&lt;/div&gt; &lt;p&gt; &lt;button type=&quot;button&quot; class=&quot;btn btn-primary &quot;&gt;&lt;i class=&quot;fab fa-paypal mr-2&quot;&gt;&lt;/i&gt; Log into my Paypal&lt;/button&gt; &lt;/p&gt; &lt;p class=&quot;text-muted&quot;&gt; Note: After clicking on the button, you will be directed to a secure gateway for payment. After completing the payment process, you will be redirected back to the website to view details of your order. &lt;/p&gt; &lt;/div&gt; &lt;!-- End --&gt; &lt;!-- bank transfer info --&gt; &lt;div id=&quot;net-banking&quot; class=&quot;tab-pane fade pt-3&quot;&gt; &lt;div class=&quot;form-group &quot;&gt; &lt;label for=&quot;Select Your Bank&quot;&gt; &lt;h6&gt;Select your Bank&lt;/h6&gt; &lt;/label&gt; &lt;select class=&quot;form-control&quot; id=&quot;ccmonth&quot;&gt; &lt;option value=&quot;&quot; selected disabled&gt;--Please select your Bank--&lt;/option&gt; &lt;option&gt;&lt;a href=&quot;https://www.youtube.com/&quot;&gt;Maybank&lt;/a&gt;&lt;/option&gt; &lt;option&gt;CIMB Clicks&lt;/option&gt; &lt;option&gt;MyBSN&lt;/option&gt; &lt;option&gt;Bank Rakyat&lt;/option&gt; &lt;option&gt;Bank Islam&lt;/option&gt; &lt;option&gt;Ambank&lt;/option&gt; &lt;/select&gt; &lt;/div&gt; &lt;div class=&quot;form-group&quot;&gt; &lt;p&gt; &lt;button type=&quot;button&quot; class=&quot;btn btn-primary &quot;&gt;&lt;i class=&quot;fas fa-mobile-alt mr-2&quot;&gt;&lt;/i&gt; Proceed Payment&lt;/button&gt; &lt;/p&gt; &lt;/div&gt; &lt;p class=&quot;text-muted&quot;&gt;Note: After clicking on the button, you will be directed to a secure gateway for payment. After completing the payment process, you will be redirected back to the website to view details of your order. &lt;/p&gt; &lt;/div&gt; &lt;!-- End --&gt; &lt;!-- End --&gt; &lt;/div&gt; &lt;/div&gt; &lt;/div&gt; &lt;/div&gt;" id="htmleditorvalue"> 
+        <input type="hidden" value="body{background: #f5f5f5}.rounded{border-radius: 1rem}.nav-pills .nav-link{color: #555}.nav-pills .nav-link.active{color: white}input[type=&amp;amp;amp;amp;amp;amp;quot;radio&amp;amp;amp;amp;amp;amp;quot;]{margin-right: 5px}.bold{font-weight:bold}" id="csseditorvalue">
+        <input type="hidden" value="$(function() {
+  $('[data-toggle=&amp;amp;amp;amp;amp;amp;quot;tooltip&amp;amp;amp;amp;amp;amp;quot;]').tooltip()
+})" id="jseditorvalue">
+        <input type="hidden" id="pro_url_slug" name="pro_url_slug" value="payment-form-three-different-payment-options-13285516">
+        <input type="hidden" id="cs_htmlEditor" name="cs_htmlEditor" value="&lt;title&gt;E-Tamu&lt;/title&gt;
+&lt;div class=&quot;container py-5&quot;&gt;
+    &lt;!-- For demo purpose --&gt;
+    &lt;div class=&quot;row mb-4&quot;&gt;
+        &lt;div class=&quot;col-lg-8 mx-auto text-center&quot;&gt;
+            &lt;h1 class=&quot;display-6&quot;&gt;E-Tamu&lt;/h1&gt;
+        &lt;/div&gt;
+    &lt;/div&gt; &lt;!-- End --&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-lg-6 mx-auto&quot;&gt;
+            &lt;div class=&quot;card &quot;&gt;
+                &lt;div class=&quot;card-header&quot;&gt;
+                    &lt;div class=&quot;bg-white shadow-sm pt-4 pl-2 pr-2 pb-2&quot;&gt;
+                        &lt;!-- Credit card form tabs --&gt;
+                        &lt;ul role=&quot;tablist&quot; class=&quot;nav bg-light nav-pills rounded nav-fill mb-3&quot;&gt;
+                            &lt;li class=&quot;nav-item&quot;&gt; &lt;a data-toggle=&quot;pill&quot; href=&quot;#credit-card&quot; class=&quot;nav-link active &quot;&gt; &lt;i class=&quot;fas fa-credit-card mr-2&quot;&gt;&lt;/i&gt; Credit Card &lt;/a&gt; &lt;/li&gt;
+                            &lt;li class=&quot;nav-item&quot;&gt; &lt;a data-toggle=&quot;pill&quot; href=&quot;#paypal&quot; class=&quot;nav-link &quot;&gt; &lt;i class=&quot;fab fa-paypal mr-2&quot;&gt;&lt;/i&gt; Paypal &lt;/a&gt; &lt;/li&gt;
+                            &lt;li class=&quot;nav-item&quot;&gt; &lt;a data-toggle=&quot;pill&quot; href=&quot;#net-banking&quot; class=&quot;nav-link &quot;&gt; &lt;i class=&quot;fas fa-mobile-alt mr-2&quot;&gt;&lt;/i&gt; Net Banking &lt;/a&gt; &lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/div&gt; &lt;!-- End --&gt;
+                    &lt;!-- Credit card form content --&gt;
+                    &lt;div class=&quot;tab-content&quot;&gt;
+                        &lt;!-- credit card info--&gt;
+                        &lt;div id=&quot;credit-card&quot; class=&quot;tab-pane fade show active pt-3&quot;&gt;
+                            &lt;form role=&quot;form&quot; onsubmit=&quot;event.preventDefault()&quot;&gt;
+                                &lt;div class=&quot;form-group&quot;&gt; &lt;label for=&quot;username&quot;&gt;
+                                        &lt;h6&gt;Card Owner&lt;/h6&gt;
+                                    &lt;/label&gt; &lt;input type=&quot;text&quot; name=&quot;username&quot; placeholder=&quot;Card Owner Name&quot; required class=&quot;form-control &quot;&gt; &lt;/div&gt;
+                                &lt;div class=&quot;form-group&quot;&gt; &lt;label for=&quot;cardNumber&quot;&gt;
+                                        &lt;h6&gt;Card number&lt;/h6&gt;
+                                    &lt;/label&gt;
+                                    &lt;div class=&quot;input-group&quot;&gt; &lt;input type=&quot;text&quot; name=&quot;cardNumber&quot; placeholder=&quot;Valid card number&quot; class=&quot;form-control &quot; required&gt;
+                                        &lt;div class=&quot;input-group-append&quot;&gt; &lt;span class=&quot;input-group-text text-muted&quot;&gt; &lt;i class=&quot;fab fa-cc-visa mx-1&quot;&gt;&lt;/i&gt; &lt;i class=&quot;fab fa-cc-mastercard mx-1&quot;&gt;&lt;/i&gt; &lt;i class=&quot;fab fa-cc-amex mx-1&quot;&gt;&lt;/i&gt; &lt;/span&gt; &lt;/div&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                                &lt;div class=&quot;row&quot;&gt;
+                                    &lt;div class=&quot;col-sm-8&quot;&gt;
+                                        &lt;div class=&quot;form-group&quot;&gt; &lt;label&gt;&lt;span class=&quot;hidden-xs&quot;&gt;
+                                                    &lt;h6&gt;Expiration Date&lt;/h6&gt;
+                                                &lt;/span&gt;&lt;/label&gt;
+                                            &lt;div class=&quot;input-group&quot;&gt; &lt;input type=&quot;number&quot; placeholder=&quot;MM&quot; name=&quot;&quot; class=&quot;form-control&quot; required&gt; &lt;input type=&quot;number&quot; placeholder=&quot;YY&quot; name=&quot;&quot; class=&quot;form-control&quot; required&gt; &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class=&quot;col-sm-4&quot;&gt;
+                                        &lt;div class=&quot;form-group mb-4&quot;&gt; &lt;label data-toggle=&quot;tooltip&quot; title=&quot;Three digit CV code on the back of your card&quot;&gt;
+                                                &lt;h6&gt;CVV &lt;i class=&quot;fa fa-question-circle d-inline&quot;&gt;&lt;/i&gt;&lt;/h6&gt;
+                                            &lt;/label&gt; &lt;input type=&quot;text&quot; required class=&quot;form-control&quot;&gt; &lt;/div&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                                &lt;div class=&quot;card-footer&quot;&gt; &lt;button type=&quot;button&quot; class=&quot;subscribe btn btn-primary btn-block shadow-sm&quot;&gt; Confirm Payment &lt;/button&gt;
+                            &lt;/form&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt; &lt;!-- End --&gt;
+                    &lt;!-- Paypal info --&gt;
+                    &lt;div id=&quot;paypal&quot; class=&quot;tab-pane fade pt-3&quot;&gt;
+                        &lt;h6 class=&quot;pb-2&quot;&gt;Select your paypal account type&lt;/h6&gt;
+                        &lt;div class=&quot;form-group &quot;&gt; &lt;label class=&quot;radio-inline&quot;&gt; &lt;input type=&quot;radio&quot; name=&quot;optradio&quot; checked&gt; Domestic &lt;/label&gt; &lt;label class=&quot;radio-inline&quot;&gt; &lt;input type=&quot;radio&quot; name=&quot;optradio&quot; class=&quot;ml-5&quot;&gt;International &lt;/label&gt;&lt;/div&gt;
+                        &lt;p&gt; &lt;button type=&quot;button&quot; class=&quot;btn btn-primary &quot;&gt;&lt;i class=&quot;fab fa-paypal mr-2&quot;&gt;&lt;/i&gt; Log into my Paypal&lt;/button&gt; &lt;/p&gt;
+                        &lt;p class=&quot;text-muted&quot;&gt; Note: After clicking on the button, you will be directed to a secure gateway for payment. After completing the payment process, you will be redirected back to the website to view details of your order. &lt;/p&gt;
+                    &lt;/div&gt; &lt;!-- End --&gt;
+                    &lt;!-- bank transfer info --&gt;
+                    &lt;div id=&quot;net-banking&quot; class=&quot;tab-pane fade pt-3&quot;&gt;
+                        &lt;div class=&quot;form-group &quot;&gt; &lt;label for=&quot;Select Your Bank&quot;&gt;
+                                &lt;h6&gt;Select your Bank&lt;/h6&gt;
+                            &lt;/label&gt; &lt;select class=&quot;form-control&quot; id=&quot;ccmonth&quot;&gt;
+                                &lt;option value=&quot;&quot; selected disabled&gt;--Please select your Bank--&lt;/option&gt;
+                                &lt;option&gt;&lt;a href=&quot;https://www.youtube.com/&quot;&gt;Maybank&lt;/a&gt;&lt;/option&gt;
+                                &lt;option&gt;CIMB Clicks&lt;/option&gt;
+                                &lt;option&gt;MyBSN&lt;/option&gt;
+                                &lt;option&gt;Bank Rakyat&lt;/option&gt;
+                                &lt;option&gt;Bank Islam&lt;/option&gt;
+                                &lt;option&gt;Ambank&lt;/option&gt;
+                                &lt;option&gt;Ambank&lt;/option&gt;
+                            &lt;/select&gt; &lt;/div&gt;
+                        &lt;div class=&quot;form-group&quot;&gt;
+                            &lt;p&gt; &lt;button type=&quot;button&quot; class=&quot;btn btn-primary &quot;&gt;&lt;i class=&quot;fas fa-mobile-alt mr-2&quot;&gt;&lt;/i&gt; Proceed Payment&lt;/button&gt; &lt;/p&gt;
+                        &lt;/div&gt;
+                        &lt;p class=&quot;text-muted&quot;&gt;Note: After clicking on the button, you will be directed to a secure gateway for payment. After completing the payment process, you will be redirected back to the website to view details of your order. &lt;/p&gt;
+                    &lt;/div&gt; &lt;!-- End --&gt;
+                    &lt;!-- End --&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;">
+        <input type="hidden" id="cs_cssEditor" name="cs_cssEditor" value="body{background: #f5f5f5}.rounded{border-radius: 1rem}.nav-pills .nav-link{color: #555}.nav-pills .nav-link.active{color: white}input[type=&amp;amp;amp;amp;amp;amp;amp;quot;radio&amp;amp;amp;amp;amp;amp;amp;quot;]{margin-right: 5px}.bold{font-weight:bold}">
+        <input type="hidden" id="cs_jsEditor" name="cs_jsEditor" value="$(function() {
+  $('[data-toggle=&amp;amp;amp;amp;amp;amp;amp;quot;tooltip&amp;amp;amp;amp;amp;amp;amp;quot;]').tooltip()
+})">
+        <input type="hidden" id="tempbootstrapversion" value="4.0.0">
+        <input type="hidden" id="tempbootstrapcsslink" value="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <input type="hidden" id="tempbootstrapjslink" value="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js">
+        <input type="hidden" id="tempbootstrapjslink_1" value="">
+        <input type="hidden" id="tempbootstrapjslink_2" value="">
+        <input type="hidden" id="tempoptionjsrequired" value="1">
+        <input type="hidden" id="tempoptionis_react" value="0">
+        
+        <input type="hidden" id="tempjsversion" value="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+        <input type="hidden" id="tempfonts" value="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+        <input type="hidden" id="snippet_image" name="snippet_image" value="">
+        <input type="hidden" id="snippet_tags" name="snippet_tags[]" value="">  
+        <input type="hidden" id="tempoptionautocomplete" value="">
+        <input type="hidden" id="tempversionname" value="Bootstrap 4"> 
+        
+        <input type="hidden" id="bootstrap_version_id" name="bootstrap_version_id" value="1">
+        <input type="hidden" id="jquery_version_id" name="jquery_version_id" value="1">
+        <input type="hidden" id="snippet_fonts_id" name="snippet_fonts_id" value="2">
+
+        <input type="hidden" id="snippet_name" name="snippet_name" value="">
+        <input type="hidden" id="last_saved" value="">
+
+        
+                         
+        </div>
+	        
+	       </div>
+	    </div>
+
+	  </div>
+	  <div id="iframecontainer">
+	    <div id="iframe">
+	      <div id="iframewrapper">
+
+	      	<div id="preview-container">
+
+
+          <iframe style="width :100%;height:calc(100vh - 85px);" class="preview-iframe" frameborder="0"></iframe></div>                  
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	</div>
+</div></form>
+      
+
+<script src="Pro%20Online%20editor_files/jquery_002.js" type="text/javascript"></script> 
+
+
+
+<script src="Pro%20Online%20editor_files/jquery.js" type="text/javascript"></script>
+<script src="Pro%20Online%20editor_files/ace.js" type="text/javascript"></script>
+<script src="Pro%20Online%20editor_files/ext-language_tools.js" type="text/javascript"></script>
+
+<script src="Pro%20Online%20editor_files/theme-twilight.js" type="text/javascript" charset="utf-8"></script>
+<script src="Pro%20Online%20editor_files/ext-beautify.js" type="text/javascript" charset="utf-8"></script>
+<script src="Pro%20Online%20editor_files/beautify.js" type="text/javascript"></script>
+<script src="Pro%20Online%20editor_files/beautify-css.js" type="text/javascript"></script>
+<script src="Pro%20Online%20editor_files/beautify-html.js" type="text/javascript"></script>
+<script src="Pro%20Online%20editor_files/moment.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  function valueChanged()
+    {
+        if($('#featured-switch').is(":checked"))   {
+           
+           $("#featured-switch").val(1);
+         } else {
+         
+           $("#featured-switch").val(0);
+    }
+
+    }
+</script>
+
+<script type="text/javascript">
+
+    $(document).ready(function() {
+        $("select#bootstrap_version").change(function() {
+            var selectedCountry = $(this).children("option:selected").val();
+            var optionboostrap = $('option:selected', this).attr('mytag');
+            var optionboostrapcss = $('option:selected', this).attr('mycss');
+            var optionboostrapjs = $('option:selected', this).attr('myjs');
+            var optionboostrapjs_1 = $('option:selected', this).attr('myjs_1');
+            var optionboostrapjs_2 = $('option:selected', this).attr('myjs_2');
+            var optionis_react = $('option:selected', this).attr('is_react');
+            var optionjsrequired = $('option:selected', this).attr('js_required');
+            var optionautocomplete = $('option:selected', this).attr('autocomplete_url');
+            var optionversionname =  $('option:selected', this).attr('version_name');
+            
+            $('#bootstrap_version_id').val(selectedCountry);
+            $('#tempbootstrapcsslink').val(optionboostrapcss);
+            $('#tempbootstrapjslink').val(optionboostrapjs);
+            $('#tempbootstrapjslink_1').val(optionboostrapjs_1);
+            $('#tempbootstrapjslink_2').val(optionboostrapjs_2);
+            
+            $('#tempbootstrapversion').val(optionboostrap);
+            $('#tempoptionjsrequired').val(optionjsrequired);
+            $('#tempoptionautocomplete').val(optionautocomplete);
+            $('#tempversionname').val(optionversionname);
+            $('#tempoptionis_react').val(optionis_react);
+            var is_react = document.querySelector(".babeljs");
+            if (optionis_react==1) {
+              is_react.classList.remove("d-none");
+            } else {
+              is_react.classList.add("d-none");
+            }
+
+            bsversion = $('#tempbootstrapversion').val();
+
+           // if(parseInt(bsversion) < parseInt("5.0.0")){
+               if(optionjsrequired==1){
+
+                $("#jquery-container").removeClass("display-none");
+                //$(this).removeClass("spot");
+                $('#tempjsversion').val("3.2.1");
+
+            }else{
+
+                $("#jquery-container").addClass("display-none");
+                $("#tag-container").removeClass("col-md-4");
+                $("#tag-container").addClass("col-md-6");
+                $('#tempjsversion').val("");
+                
+            }
+
+            loadsnippet();
+            savesnippet();
+        });
+
+        $("select#js_version").change(function() {
+            var selectedCountry = $(this).children("option:selected").val();
+            var optionjs = $('option:selected', this).attr('mytag');
+            var js_link = $('option:selected', this).attr('myjslink');
+            
+            $('#tempjsversion').val(js_link);
+            $('#jquery_version_id').val(selectedCountry);
+            loadsnippet();
+            savesnippet();
+        });
+
+        $("select#snippet_fonts").change(function() {
+          var selectedCountry = $(this).children("option:selected").val();
+            var optionfonts = $('option:selected', this).attr('mytag');
+            $('#tempfonts').val(optionfonts);
+            $('#snippet_fonts_id').val(selectedCountry);
+            loadsnippet();
+            savesnippet();
+        });
+
+    });
+    var fontsize = $("#sizeinput").val();
+    var bsversion,jsversion,snippetfonts;
+    htmlString = $('#htmleditorvalue').val();
+    cssString = $('#csseditorvalue').val();
+    jsString = $('#jseditorvalue').val();
+    
+    html_code = html_beautify(htmlString);
+
+    
+    css_code = css_beautify(cssString);
+    js_code = html_beautify(jsString);
+   // var langTools = ace.require("ace/ext/language_tools");
+    var html = ace.edit("htmlEditor");
+    var css = ace.edit("cssEditor");
+    var js = ace.edit("jsEditor");
+     
+    function setEditorOptions(snippets, editor, type) {
+
+    editor.setTheme("ace/theme/monokai");
+    editor.session.setMode("ace/mode/" + type);
+    editor.session.setValue(snippets);
+    };
+
+    setEditorOptions(html_code, html, 'html');
+    setEditorOptions(css_code, css, 'css');
+    setEditorOptions(js_code, js, 'jsx');
+
+    // html.setTheme("ace/theme/monokai");
+    // css.setTheme("ace/theme/monokai");
+    // js.setTheme("ace/theme/monokai");
+
+    html.setOptions({
+      fontSize: fontsize+'px',
+      enableBasicAutocompletion: true,
+      enableSnippets: true,
+      enableLiveAutocompletion: true,
+    });
+
+    css.setOptions({
+     
+      fontSize: fontsize+'px',
+      enableBasicAutocompletion: true,
+      enableSnippets: true,
+      enableLiveAutocompletion: true,
+    });
+
+    js.setOptions({
+      
+      fontSize: fontsize+'px',
+    });
+ 
+    loadsnippet();
+
+    /*Testing start*/
+     
+    function updateTextInput(val) {
+          $(".sizenumber").html(val);
+          $("#sizeinput").val(val);
+          update_html();
+          update_css();
+          update_js();
+
+          }
+
+    /*Testing End*/
+
+    function readFile(file)
+    {   
+        var res;
+        var f = new XMLHttpRequest();
+        f.open("GET", file, false);
+        f.onreadystatechange = function ()
+        {
+            if(f.readyState === 4)
+            {
+                if(f.status === 200 || f.status == 0)
+                {
+                    res= f.responseText;
+                  
+                }
+            }
+        }
+        f.send(null);
+        return res;
+    }
+
+
+    html.session.setMode("ace/mode/html");
+    css.session.setMode("ace/mode/css");
+    js.session.setMode("ace/mode/jsx");
+
+    // get html
+    
+    html.getSession().on('change', function() {
+        update_html();
+    });
+
+    function update_html() {
+      var fontsizenew = $("#sizeinput").val();
+      html.setOptions({fontSize:fontsizenew+"px"});
+        var val = html.getSession().getValue();
+        $("#cs_htmlEditor").val(val);
+        savesnippet();
+        var auto_url = $('#tempoptionautocomplete').val();
+        if (auto_url !='') {
+          var bootstrap_version = $('#tempversionname').val();
+    var libraries = readFile(auto_url);
+    var externallibraries = libraries.split(',\n');
+    var staticWordCompleter = {
+        getCompletions: function(editor, session, pos, prefix, callback) {
+          var wordList = externallibraries;
+          callback(null, wordList.map(function(word) {
+            return {
+              caption: word,
+              value: word,  
+              meta: bootstrap_version
+            };
+          }));
+
+        }
+      }
+  html.completers = [staticWordCompleter];
+          
+        }
+
+    }
+
+    //get css
+
+    css.getSession().on('change', function() {
+        update_css()
+    });
+
+    function update_css() {
+      var fontsizenew = $("#sizeinput").val();
+      css.setOptions({fontSize:fontsizenew+"px"});
+        var val = css.getSession().getValue();
+        $("#cs_cssEditor").val(val);
+        savesnippet();
+       
+    var libraries = readFile('https://raw.githubusercontent.com/asksnbb/bootstraplibraries/main/css.txt');
+    var externallibraries = libraries.split(',\n');
+    var staticWordCompleter = {
+        getCompletions: function(editor, session, pos, prefix, callback) {
+          var wordList = externallibraries;
+          callback(null, wordList.map(function(word) {
+            return {
+              caption: word,
+              value: word,  
+              meta: "- CSS"
+            };
+          }));
+
+        }
+      }
+  // langTools.setCompleters([staticWordCompleter]);
+  css.completers = [staticWordCompleter];
+    }
+
+    // get javascript
+
+    js.getSession().on('change', function() {
+        update_js()
+    });
+
+    function update_js() {
+      var fontsizenew = $("#sizeinput").val();
+      js.setOptions({fontSize:fontsizenew+"px"});
+        var val = js.getSession().getValue();
+        $("#cs_jsEditor").val(val);
+        savesnippet();
+    }
+
+
+    var delay = (function() {
+        var timer = 0;
+        return function(callback, ms) {
+            clearTimeout(timer);
+            timer = setTimeout(callback, ms);
+        };
+    })();
+
+    $('.ace_text-input').keyup(function(e) {
+        bsversion = $('#tempbootstrapversion').val();
+
+        bscsslink = $('#tempbootstrapcsslink').val();
+        bsjslink = $('#tempbootstrapjslink').val();
+        bsjslink_1 = $('#tempbootstrapjslink_1').val();
+       // alert(bscsslink);
+        jsversion = $('#tempjsversion').val();
+        snippetfonts = $('#tempfonts').val();
+        isjsrequired = $('#tempoptionjsrequired').val();
+        is_react = $('#tempoptionis_react').val();
+        
+        
+        delay(function() {
+            var html1 = buildSource(html, js, css);
+            var iframe = document.createElement('iframe');  
+            iframe.frameBorder = "0";
+            iframe.setAttribute("Style", "width :100%;height:calc(100vh - 85px);");
+            iframe.className = 'preview-iframe';
+            $('.preview-iframe').remove();
+            $('div#preview-container').append(iframe);
+
+            iframe.contentWindow.document.open('text/html', 'replace');
+            iframe.contentWindow.document.write(html1); 
+            iframe.contentWindow.document.close();
+        }, 1000);
+    });
+
+    function buildSource(htmleditor, jseditor, csseditor) {
+        var code = {};
+        code.html = htmleditor.getValue();
+        code.css = csseditor.getValue();
+        code.js = jseditor.getValue();
+        code.snippetfonts = snippetfonts;
+          code.bootstrapcss = bscsslink;
+          code.bootstrapjs = bsjslink;
+          code.bootstrapjs_1 = bsjslink_1;
+          code.bootstrapjs_2 = bsjslink_2;
+
+            if(isjsrequired ==1){
+
+            code.jqueryurl =  jsversion;
+
+            } 
+
+            if(is_react==1){
+                   code.jstype = 'babel';
+            }else{    
+                   code.jstype = 'Javascript';
+            }
+
+            var template = "<!doctype html>\n\
+                        <html>\n\
+                            <head>\n\
+                                <meta charset='utf-8'>\n\
+                                <meta name='viewport' content='width=device-width, initial-scale=1'>\n\
+                                <title>Snippet - BBBootstrap</title>\n\
+                                <link href='|bootstrapcss|' rel='stylesheet'>\n\
+                                <link href='|snippetfonts|' rel='stylesheet'>\n\
+                                <style>|css|\x3C/style>\n\
+                               </head>\n\
+                               <body>\n\
+                               |html|\n\
+                               \x3Cscript type='text/javascript' src='|jqueryurl|'>\x3C/script>\n\
+                               \x3Cscript type='text/javascript' src='|bootstrapjs|'>\x3C/script>\n\
+                               \x3Cscript type='text/javascript' src='|bootstrapjs_1|'>\x3C/script>\n\
+                               \x3Cscript type='text/javascript' src='|bootstrapjs_2|'>\x3C/script>\n\
+                               \x3Cscript type='text/|jstype|'>|js|\x3C/script>\n\
+                               </body>\n\
+                               </html>";                      
+
+        content = template.replace(/\|(\w+)\|/g, function(match, str) {
+            if (str in code) return code[str];
+            return '';
+        });
+
+        return content;
+    }
+
+
+                        function loadsnippet(){
+
+                            bsversion = $('#tempbootstrapversion').val();
+                            jsversion = $('#tempjsversion').val();
+                            snippetfonts = $('#tempfonts').val();
+                            isjsrequired = $('#tempoptionjsrequired').val();
+                            is_react = $('#tempoptionis_react').val();
+                            bscsslink = $('#tempbootstrapcsslink').val();
+                            bsjslink = $('#tempbootstrapjslink').val();
+                            bsjslink_1 = $('#tempbootstrapjslink_1').val();
+                            bsjslink_2 = $('#tempbootstrapjslink_2').val();
+
+                        var html1 = buildSource(html, js, css);
+
+                        $(function() {
+                        var iframe = document.createElement('iframe');
+
+                        
+                        iframe.frameBorder = "0";
+                        iframe.setAttribute("Style", "width :100%;height:calc(100vh - 85px);");
+                        
+
+                        iframe.className = 'preview-iframe';
+
+                        $('.preview-iframe').remove();
+                        $('div#preview-container').append(iframe);
+
+                        iframe.contentWindow.document.open('text/html', 'replace');
+                        iframe.contentWindow.document.write(html1);
+                        iframe.contentWindow.document.close();
+                        });
+                        }
+
+                        
+                                  function savesnippet(){
+
+                                    var saved_time = $("#last_saved").val();
+                                    var a = moment();
+                                    
+                                    var b = moment(saved_time);
+                                   var sim = a.diff(b); // 86400000
+                                   var seconds = ((sim % 60000) / 1000).toFixed(0);
+                                    if(seconds > 30){
+                                    callsnippet();
+                                    }
+                                   
+                                    }
+
+
+                                    function callsnippet(){
+
+
+                                      $.ajaxSetup({
+                                          headers: {
+                                          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                          }
+                                      });
+                                      $.ajax({
+                                              url: '/forksnippet/saveforksnippets',
+                                              type: 'POST',
+                                              data:
+                                                $("#form_snippets_form").serialize()
+                                              ,
+                                              beforeSend: function(result){
+                                                
+                                          $("#saveonlinesnippet").attr("disabled", true);
+                                          $("#saveonlinesnippet").html('Auto saving...');
+                                          },
+                                              success: function(result) {
+                                                  $("#last_saved").val(result);
+                                                  $("#saveonlinesnippet").html('Auto saved');
+                                                
+                                              }
+                                          });
+
+                                    }
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+$('.select-items').niceSelect();
+});
+
+
+$("#name_snippet").keyup(function(e) {
+   
+  //  alert(this.value);
+
+    $("#snippet_name").val(this.value);
+
+});
+</script> 
+
+<script type="text/javascript">
+  window.onbeforeunload = function (e) {
+      e = e || window.event;
+  
+      // For IE and Firefox prior to version 4
+      if (e) {
+          e.returnValue = 'Sure?';
+      }
+  
+      // For Safari
+      return 'Sure?';
+  };
+  </script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+
+     var multipleCancelButton = new Choices('#choices-multiple-remove-button', {
+     removeItemButton: true,
+     maxItemCount:5,
+     searchResultLimit:5,
+     renderChoiceLimit:5
+     });
+
+     $("#choices-multiple-remove-button").change(function() {
+                var snippettags = [];
+    $.each($("#choices-multiple-remove-button option:selected"), function(){           
+        snippettags.push($(this).val());
+
+
+    });
+
+    $('#snippet_tags').val(JSON.stringify(snippettags));
+
+    });
+
+
+     });
+
+
+
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+
+ var js = 1;
+ if(js){
+   $("#jquery-container").removeClass('display-none');
+ }   
+
+/*Bootstrap*/
+$("#bootstrap-container .nice-select span").text("Bootstrap 4 - 4.0.0");
+$('#bootstrap-container .nice-select .list').find('li').removeClass('selected focus');
+$('#bootstrap-container .nice-select ul').find('li[data-value=1]').addClass('selected focus');
+
+/*Jquery*/
+$("#jquery-container .nice-select span").text("jQuery 3.2.1");
+$('#jquery-container .nice-select .list').find('li').removeClass('selected focus');
+$('#jquery-container .nice-select ul').find('li[data-value=1]').addClass('selected focus');
+
+
+$("#font-container .nice-select span").text("Font Awesome - 4.0.3");
+$('#font-container .nice-select .list').find('li').removeClass('selected focus');
+$('#font-container .nice-select ul').find('li[data-value=2]').addClass('selected focus');
+
+
+/*Fonts*/
+// 
+});
+</script>
+
+<script src="Pro%20Online%20editor_files/bootstrap.js" type="text/javascript"></script>
+<script src="Pro%20Online%20editor_files/onlineeditorscripts.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    document.addEventListener('contextmenu', event => event.preventDefault());
+    
+    document.onkeydown = function (e) {
+    if (event.keyCode == 123) {
+        return false;
+    }
+    if (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'i'.charCodeAt(0))) {
+        return false;
+    }
+    if (e.ctrlKey && e.shiftKey && (e.keyCode == 'C'.charCodeAt(0) || e.keyCode == 'c'.charCodeAt(0))) {
+        return false;
+    }
+    if (e.ctrlKey && e.shiftKey && (e.keyCode == 'J'.charCodeAt(0) || e.keyCode == 'j'.charCodeAt(0))) {
+        return false;
+    }
+    if (e.ctrlKey && (e.keyCode == 'U'.charCodeAt(0) || e.keyCode == 'u'.charCodeAt(0))) {
+        return false;
+    }
+    if (e.ctrlKey && (e.keyCode == 'S'.charCodeAt(0) || e.keyCode == 's'.charCodeAt(0))) {
+        return false;
+    }
+ }                                                 
+</script>
+
+<script defer="defer" src="Pro%20Online%20editor_files/v64f9daad31f64f81be21cbef6184a5e31634941392597" integrity="sha512-gV/bogrUTVP2N3IzTDKzgP0Js1gg4fbwtYB6ftgLbKQu/V8yH2+lrKCfKHelh4SO3DPzKj4/glTO+tNJGDnb0A==" data-cf-beacon="{&quot;rayId&quot;:&quot;6bdbf5572e8cf949&quot;,&quot;version&quot;:&quot;2021.12.0&quot;,&quot;r&quot;:1,&quot;token&quot;:&quot;0abe9be495a1426c8d4049c15529447a&quot;,&quot;si&quot;:100}" crossorigin="anonymous"></script>
+
+</body></html>
